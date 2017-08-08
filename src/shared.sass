@@ -1,0 +1,125 @@
+/*
+  Web Font Imports
+ */
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+
+$font-stack: 'Noto Sans TC', 'Avenir Next', 'Helvetica', sans-serif
+$geometric-font-stack: 'Century Gothic', 'Futura', sans-serif;
+/*
+  Colours
+ */
+$gradient0: #FFF
+$gradient1: #FFFAB1
+$gradient2: #FFF463
+$gradient3: #FF9856
+$gradient4: #FF3B49
+$bgColour: #08004E
+
+$theme1: #FF5559
+$theme2: #74FFEA
+$theme3: #393B3B
+
+$pagePadding: 32px
+
+/*
+  Font Sizes
+  3 sections by width, h1~h6 + p
+ */
+
+
+/*
+  Mixins
+ */
+=flexCentre
+    display: flex
+    align-items: center
+    justify-content: center
+
+=hideNoPointer
+    pointer-events: none
+    opacity: 0
+
+=foreGroundColour
+    color: $gradient0
+=mainFont
+    font-family: $font-stack
+=geometricFont
+    font-family: $geometric-font-stack
+/*
+  Generic, Strucutral Styling
+ */
+::-webkit-scrollbar
+    width: 0
+
+.persistent
+    transform: translate3d(0,0,0)
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    display: flex
+    align-items: center
+    justify-content: center
+    .float
+        position: relative
+        outline: 1px solid #008080
+        height: calc(100vh - 64px )
+        max-width: calc(100vw - 64px )
+        min-width: calc(100vw - 64px )
+        padding: $pagePadding
+
+        .onCorners
+            position: absolute
+
+        .topLeft
+            top: $pagePadding
+            left: $pagePadding
+        .topRight
+            top: $pagePadding
+            right: $pagePadding
+        .bottomLeft
+            bottom: $pagePadding
+            left: $pagePadding
+        .bottomRight
+            bottom: $pagePadding
+            right: $pagePadding
+
+        
+.page-section
+    position: relative
+    min-height: 100vh
+    // outline: 2px solid red
+    +flexCentre
+
+    .content
+        position: relative
+        outline: 1px solid #008080
+        height: calc(100vh - 64px )
+        max-width: calc(100vw - 64px )
+        min-width: calc(100vw - 64px )
+        padding: 32px
+
+        .onCorners
+            position: absolute
+
+        .topLeft
+            top: $pagePadding
+            left: $pagePadding
+        .topRight
+            top: $pagePadding
+            right: $pagePadding
+        .bottomLeft
+            bottom: $pagePadding
+            left: $pagePadding
+        .bottomRight
+            bottom: $pagePadding
+            right: $pagePadding
+
+
+/*
+  Event-related CSS
+ */
+body.stopScrolling
+    overflow: hidden

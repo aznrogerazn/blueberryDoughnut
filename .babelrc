@@ -1,0 +1,5 @@
+{
+    "compact": true,
+    "presets": [ "stage-3", "es2015" ],
+    "plugins": [ "transform-class-properties" ]
+}

@@ -1,0 +1,2 @@
+./syncassets.sh
+./syncfont.sh
