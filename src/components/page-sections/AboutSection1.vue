@@ -1,17 +1,13 @@
 <template>
   <div class="">
-    <AboutSection1></AboutSection1>
+    <slot name="left"></slot>
+    <slot name="right"></slot>
   </div>
 </template>
 
 <script>
-import AboutSection1 from '@/components/page-sections/AboutSection1';
-
 export default {
-    name: 'AboutPage',
-    components: {
-        AboutSection1
-    },
+    name: 'AboutSection1',
     data () {
         return {
 
