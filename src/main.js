@@ -2,12 +2,16 @@
 // v0.1.72
 import Vue from 'vue';
 import VueComputedPromise from 'vue-computed-promise';
+import Vuex from 'vuex';
 import App from './App';
 import Backendless from 'backendless';
 import firebase from 'firebase';
 
 // Router Instance
 import router from './router';
+
+// Vuex Store
+import store from './vuex';
 
 // Custom Libraries
 import { Lang } from './language';
@@ -16,6 +20,7 @@ import CacheMachine from './cache';
 
 Vue.config.productionTip = false;
 Vue.use(VueComputedPromise);
+Vue.use(Vuex);
 
 window.addEventListener('load', () => {
   new Lang();
@@ -23,6 +28,9 @@ window.addEventListener('load', () => {
   /* eslint-disable no-new */
   new Vue({
     el: '#app',
+    store,        // Store declared for all children
+                  // Refer to this with this.$store in child
+                  // components.
     router: router,
     template: '<App/>',
     components: { App }

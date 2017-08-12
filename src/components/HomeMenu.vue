@@ -67,8 +67,10 @@ export default {
         handleMouseMove (eV) {
             let xRatio = (eV.clientX / window.innerWidth);
             let yRatio = (eV.clientY / window.innerHeight);
-            this.$refs.menuDisplay.style.transform = 'translate3d(' + xRatio * 20 + 'px,' + yRatio * 28 + 'px, 0)';
-            this.$refs.menuShadow.style.transform = 'translate3d(' + xRatio * 10 + 'px,' + yRatio * 15 + 'px, 0)';
+            requestAnimationFrame(() => {
+                this.$refs.menuDisplay.style.transform = 'translate3d(' + xRatio * 20 + 'px,' + yRatio * 28 + 'px, 0)';
+                this.$refs.menuShadow.style.transform = 'translate3d(' + xRatio * 10 + 'px,' + yRatio * 15 + 'px, 0)';
+            });
         },
         /**
          * Pass language configuration to the parent component
