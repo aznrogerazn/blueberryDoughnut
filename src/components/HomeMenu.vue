@@ -1,33 +1,35 @@
 <template>
-  <div class="float">
-    <div class="onCorners topRight" @click="closeMenu">
-        <svg :style="{width:'40px',height:'60px'}" class="menuIcon">
-            <line x1="0" y1="10" x2="28" y2="38" class="iconLine" />
-            <line x1="0" y1="38" x2="28" y2="10" class="iconLine" />
+<div class="persistent">
+    <div class="float">
+        <div class="onCorners topRight" @click="closeMenu">
+            <svg :style="{width:'40px',height:'60px'}" class="menuIcon">
+                <line x1="0" y1="10" x2="28" y2="38" class="iconLine" />
+                <line x1="0" y1="38" x2="28" y2="10" class="iconLine" />
+                
+            </svg>
+        </div>
+        <div ref="menuShadow" class="menuShadow">
+            <div class="item">{{getTranslation('MENU.INTRO')}}</div>
+            <div class="item">{{getTranslation('MENU.CENTRE')}}</div>
+            <div class="item">{{getTranslation('MENU.COURSES')}}</div>
+            <div class="item">{{getTranslation('MENU.SERVICES')}}</div>
+            <div class="item">{{getTranslation('MENU.NEWS')}}</div>
+            <div class="item">{{getTranslation('MENU.QA')}}</div>
+        </div>
+        <div ref="menuDisplay" class="menuDisplay">
+            <div class="item">_{{getTranslation('MENU.INTRO')}}</div>
+            <div class="item">_{{getTranslation('MENU.CENTRE')}}</div>
+            <div class="item">_{{getTranslation('MENU.COURSES')}}</div>
+            <div class="item">_{{getTranslation('MENU.SERVICES')}}</div>
+            <div class="item">_{{getTranslation('MENU.NEWS')}}</div>
+            <div class="item">_{{getTranslation('MENU.QA')}}</div>
+        </div>
+        <div class="onCorners bottomLeft langSelect">
             
-        </svg>
+            <span class="label"><span class="selector" @click="selectEN">EN</span> / <span class="selector" @click="selectZH">中文</span></span>
+        </div>
     </div>
-    <div ref="menuShadow" class="menuShadow">
-        <div class="item">{{getTranslation('MENU.INTRO')}}</div>
-        <div class="item">{{getTranslation('MENU.CENTRE')}}</div>
-        <div class="item">{{getTranslation('MENU.COURSES')}}</div>
-        <div class="item">{{getTranslation('MENU.SERVICES')}}</div>
-        <div class="item">{{getTranslation('MENU.NEWS')}}</div>
-        <div class="item">{{getTranslation('MENU.QA')}}</div>
-    </div>
-    <div ref="menuDisplay" class="menuDisplay">
-        <div class="item">_{{getTranslation('MENU.INTRO')}}</div>
-        <div class="item">_{{getTranslation('MENU.CENTRE')}}</div>
-        <div class="item">_{{getTranslation('MENU.COURSES')}}</div>
-        <div class="item">_{{getTranslation('MENU.SERVICES')}}</div>
-        <div class="item">_{{getTranslation('MENU.NEWS')}}</div>
-        <div class="item">_{{getTranslation('MENU.QA')}}</div>
-    </div>
-    <div class="onCorners bottomLeft langSelect">
-        
-        <span class="label"><span class="selector" @click="selectEN">EN</span> / <span class="selector" @click="selectZH">中文</span></span>
-    </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -45,6 +47,7 @@ export default {
         }
     },
     methods: {
+        
         getTranslation (name) {
             if (name.indexOf('.') != -1) {
                 // Process object tree

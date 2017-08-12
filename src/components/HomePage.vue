@@ -230,7 +230,7 @@
         </div>
     </div>
     <div :class="menuDisplayClass">
-        <HomeMenu @closeMenu="closeMenuHandler" @selectLang="selectLangHandler"></HomeMenu>
+        
     </div>
   </div>
 </template>

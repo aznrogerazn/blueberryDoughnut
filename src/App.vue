@@ -3,14 +3,28 @@
     <transition name="page-fade" mode="out-in">
       <router-view></router-view>
     </transition>
+    
+    <HomeMenu @closeMenu="closeMenuHandler" @selectLang="selectLangHandler"></HomeMenu>
+    
   </div>
 </template>
 
 <script>
+// Required Libraries
+import Vuex from 'vuex';
+// Vuex Store
+import store from './vuex';
+// Required Components
+import HomeMenu from '@/components/HomeMenu';
 
 export default {
   name: 'App',
-  components: {  },
+  components: {
+    HomeMenu
+  },
+  store,          // Store declared for all children
+                  // Refer to this with this.$store in child
+                  // components.
   props: {
     showToolbar: {
       type: Boolean,
