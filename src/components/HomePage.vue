@@ -47,7 +47,7 @@
                 <img class="icon" src="assets/index__heroDoubleCircle.svg"/>
                 <span class="label"><span class="selector" @click="selectEN">EN</span> / <span class="selector" @click="selectZH">中文</span></span>
             </div>
-            <div :class="menuButtonClass" @click="menuOpened = !menuOpened">
+            <div :class="menuButtonClass" @click="$store.dispatch('toggleMenu')">
                 <svg :style="{width:'40px',height:'60px'}" class="menuIcon">
                     <line x1="0" y1="10" x2="28" y2="10" :style="{stroke:'#FFF',strokeWidth:'3px'}"/>
                     <line x1="0" y1="22" x2="28" y2="22" :style="{stroke:'#FFF',strokeWidth:'3px'}"/>
@@ -228,9 +228,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div :class="menuDisplayClass">
-        
     </div>
   </div>
 </template>

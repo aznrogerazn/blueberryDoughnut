@@ -2,7 +2,7 @@
 
 // Component with Vuex Template
 // v0.0.1
-import {mapState} from 'vuex';
+import {mapGetters, mapActions, mapState} from 'vuex';
 
 var component_default1 = {
     computed: mapState ([

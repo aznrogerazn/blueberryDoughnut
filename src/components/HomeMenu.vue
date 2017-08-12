@@ -1,7 +1,7 @@
 <template>
-<div class="persistent">
+<div v-show="menuEnabled" class="persistent">
     <div class="float">
-        <div class="onCorners topRight" @click="closeMenu">
+        <div class="onCorners topRight" @click="toggleMenu">
             <svg :style="{width:'40px',height:'60px'}" class="menuIcon">
                 <line x1="0" y1="10" x2="28" y2="38" class="iconLine" />
                 <line x1="0" y1="38" x2="28" y2="10" class="iconLine" />
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import {mapGetters, mapActions, mapState} from 'vuex';
+
 export default {
     name: 'HomeMenu',
     data () {
@@ -46,8 +48,15 @@ export default {
             type: Object
         }
     },
+    computed: {
+        ...mapGetters({
+            menuEnabled: 'menuEnabled'
+        })
+    },
     methods: {
-        
+        ...mapActions({
+            toggleMenu: 'toggleMenu'
+        }),
         getTranslation (name) {
             if (name.indexOf('.') != -1) {
                 // Process object tree
@@ -91,6 +100,7 @@ export default {
         // TODO: add mobile gyroscope support
         window.addEventListener('mousemove', this.handleMouseMove);
         window['HomeMenu'] = this;
+        console.log(this.menuEnabled)
     },
     beforeDestroy () {
         // TODO: add mobile gyroscope support
