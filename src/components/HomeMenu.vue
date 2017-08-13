@@ -17,7 +17,9 @@
             <div class="item">{{getTranslation('MENU.QA')}}</div>
         </div>
         <div ref="menuDisplay" class="menuDisplay">
-            <div class="item">_{{getTranslation('MENU.INTRO')}}</div>
+            <router-link to="/about">
+                <div class="item">_{{getTranslation('MENU.INTRO')}}</div>
+            </router-link>
             <div class="item">_{{getTranslation('MENU.CENTRE')}}</div>
             <div class="item">_{{getTranslation('MENU.COURSES')}}</div>
             <div class="item">_{{getTranslation('MENU.SERVICES')}}</div>

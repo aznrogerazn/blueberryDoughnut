@@ -1,5 +1,6 @@
 <template>
   <div class="">
+    About Page
     <AboutSection1></AboutSection1>
   </div>
 </template>

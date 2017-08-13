@@ -41,6 +41,8 @@ export default {
       console.warn('[App] Route changed:');
       this.handleRouteChange(newValue);
 
+      // Close the menu
+      this.closeMenu();
       
     }
   },
@@ -52,6 +54,10 @@ export default {
     this.handleRouteChange(this.$route);
   },
   methods: {
+    ...mapActions({
+      toggleMenu: 'toggleMenu',
+      closeMenu: 'closeMenu'
+    }),
     handleRouteChange (newRoute) {
       // Determine if Toolbar.vue needs to be shown or not
       if (newRoute.path.indexOf('player') != -1) {

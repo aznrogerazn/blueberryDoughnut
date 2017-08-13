@@ -28,15 +28,19 @@ var store = new Vuex.Store({
         // },
         toggleMenu (state) {
             state.menuEnabled = !state.menuEnabled;
-            console.log(state.menuEnabled);
+        },
+        closeMenu (state) {
+            state.menuEnabled = false;
         }
     },
 
     // Register actions here
     actions: {
         toggleMenu ({ commit }) {
-            console.log('[actions] toggleMenu dispatched');
             commit('toggleMenu')
+        },
+        closeMenu ({ commit }) {
+            commit('closeMenu');
         }
     }
 });

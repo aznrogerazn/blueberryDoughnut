@@ -5,7 +5,7 @@
 export var Strings = {
     ID: 'en_US',
     MENU: {
-        INTRO: 'Intro',
+        INTRO: 'About',
         CENTRE: 'Labs',
         COURSES: 'Courses',
         SERVICES: 'Services',

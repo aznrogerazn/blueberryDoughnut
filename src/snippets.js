@@ -41,3 +41,6 @@ var component_default3 = {
         })
     }
 };
+
+// In short, you either call $store.dispatch('actionName') directly,
+// or use ...mapActions() to simplify the syntax into this.actionName()
