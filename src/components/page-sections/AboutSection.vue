@@ -1,5 +1,5 @@
 <template>
-  <div class="aboutSection">
+  <div :class="aboutSectionClass">
     <!--
       REMINDER: CSS Classes on slots are removed in Vue 2.0
                 Remember to properly use wrapper elements
@@ -14,6 +14,9 @@
 </template>
 
 <script>
+// Vuex
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'AboutSection',
     data () {
@@ -35,7 +38,27 @@ export default {
             } else {
                 return 'rightWrapper'
             }
-        }
+        },
+        focused () {
+            if (this.index === null) {
+                // index is not supplied from the parent
+                return true
+            } else if (this.index === this.pageSectionIndex) {
+                // index matches pageSectionIndex: is current section
+                return true
+            } else {
+                // is not current section
+                return false
+            }
+        },
+
+        aboutSectionClass () {
+            return this.focused ? 'aboutSection' : 'aboutSection blurred';
+        },
+
+        ...mapGetters({
+            pageSectionIndex: 'pageSectionIndex'
+        })
     },
     props: {
         contents: {
@@ -44,11 +67,18 @@ export default {
         },
         themeLeft: {
             type: Boolean,
-            default: false
+            default: false,
+            required: false
         },
         themeRight: {
             type: Boolean,
-            default: false
+            default: false,
+            required: false
+        },
+        index: {                // Note: this prop will control the 
+            type: Number,       //       fade-in/out animation by influencing
+            default: null,      //       'focused' in computed.
+            required: false
         }
     },
     methods: {
@@ -82,9 +112,12 @@ export default {
     padding-top: $pagePadding
     padding-bottom: $pagePadding
 
+.aboutSection.blurred
+    +hideNoPointer
+
 .aboutSection
     display: flex
-    
+    +homePageTransitionFast
 
     .leftWrapper
         +fullHeightPadded
