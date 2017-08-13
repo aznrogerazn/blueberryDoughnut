@@ -4,23 +4,25 @@
       <router-view></router-view>
     </transition>
     
-    <HomeMenu @closeMenu="closeMenuHandler" @selectLang="selectLangHandler"></HomeMenu>
-    
+    <HomeMenu @selectLang="selectLangHandler"></HomeMenu>
+    <MenuButton></MenuButton>
   </div>
 </template>
 
 <script>
 // Required Libraries
-import Vuex from 'vuex';
+import {Vuex, mapActions} from 'vuex';
 // Vuex Store
 import store from './vuex';
-// Required Components
+// Required, Global Components
 import HomeMenu from '@/components/HomeMenu';
+import MenuButton from '@/components/persistent/MenuButton';
 
 export default {
   name: 'App',
   components: {
-    HomeMenu
+    HomeMenu,
+    MenuButton
   },
   store,          // Store declared for all children
                   // Refer to this with this.$store in child
@@ -66,6 +68,13 @@ export default {
       } else {
         this.showToolbar = true;
       }
+    },
+    /**
+     * Handles language selection from child components
+     */
+    selectLangHandler (lang) {
+      LANGDEF.selectLang(lang);
+      this.$forceUpdate();
     }
   }
 

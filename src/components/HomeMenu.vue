@@ -1,5 +1,5 @@
 <template>
-<div v-show="menuEnabled" class="persistent">
+<div v-show="menuEnabled" class="persistent transitionFast menuBgColour">
     <div class="float">
         <div class="onCorners topRight" @click="toggleMenu">
             <svg :style="{width:'40px',height:'60px'}" class="menuIcon">
@@ -108,6 +108,9 @@ export default {
         // TODO: add mobile gyroscope support
         window.removeEventListener('mousemove', this.handleMouseMove);
         window['HomeMenu'] = null;
+    },
+    watch: {
+        
     }
   
 }
@@ -116,6 +119,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="sass">
 @import '../shared'
+
+.transitionFast
+    +homePageTransitionFast
+.menuBgColour
+    background: $bgColour
 
 .menuIcon
     

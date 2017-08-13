@@ -608,13 +608,6 @@ export default {
         closeMenuHandler (action) {
             console.log('closeMenuHandler() called: ' + action);
             this.menuOpened = false;
-        },
-        /**
-         * Handles language selection from child components
-         */
-        selectLangHandler (lang) {
-            LANGDEF.selectLang(lang);
-            this.$forceUpdate();
         }
     },
     mounted () {
@@ -644,18 +637,7 @@ export default {
 <style scoped lang="sass">
 @import '../shared'
 
-$transitionTimeFast: 0.8s
-$transitionTimeSlow: 1.4s
-$pagePadding: 32px
 $smallCircleSize: 54px
-
-$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86)
-$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1)
-/* Local Mixin */
-=homePageTransitionFast
-    transition: $transitionTimeFast $easeInOutCubic
-=homePageTransitionSlow
-    transition: $transitionTimeSlow $easeInOutCubic
 
 /* Template Classes */
 .hideNoPointer

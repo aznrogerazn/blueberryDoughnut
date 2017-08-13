@@ -1,33 +1,12 @@
 <template>
   <div class="">
-    <AboutSection>
-        <div slot="left">
-            LEFT_SLOT
-        </div>
-        <div slot="right">
-            RIGHT_SLOT
-        </div>
-    </AboutSection>
-    <AboutSection>
-        <div slot="left">
-            LEFT_SLOT
-        </div>
-        <div slot="right">
-            RIGHT_SLOT
-        </div>
-    </AboutSection>
+    Component content
   </div>
 </template>
 
 <script>
-import AboutSection from '@/components/page-sections/AboutSection';
-import AboutSection1 from '@/components/page-sections/AboutSection1';
-
 export default {
-    name: 'AboutPage',
-    components: {
-        AboutSection
-    },
+    name: 'default',
     data () {
         return {
 
@@ -60,6 +39,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="sass">
-@import '../shared'
+@import '../../shared'
 
 </style>

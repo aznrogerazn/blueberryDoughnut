@@ -22,6 +22,14 @@ $theme3: #393B3B
 
 $pagePadding: 32px
 
+$mobileWidth: 600px
+
+$transitionTimeFast: 0.8s
+$transitionTimeSlow: 1.4s
+
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86)
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1)
+
 /*
   Font Sizes
   3 sections by width, h1~h6 + p
@@ -45,6 +53,10 @@ $pagePadding: 32px
 =hideNoPointer
     pointer-events: none
     opacity: 0
+=noPointer
+    pointer-events: none
+=autoPointer
+    pointer-events: auto !important
 
 =foreGroundColour
     color: $gradient0
@@ -52,6 +64,10 @@ $pagePadding: 32px
     font-family: $font-stack
 =geometricFont
     font-family: $geometric-font-stack
+=homePageTransitionFast
+    transition: $transitionTimeFast $easeInOutCubic
+=homePageTransitionSlow
+    transition: $transitionTimeSlow $easeInOutCubic
 /*
   Generic, Strucutral Styling
  */
@@ -70,7 +86,6 @@ $pagePadding: 32px
     justify-content: center
     .float
         position: relative
-        outline: 1px solid #008080
         height: calc(100vh - 64px )
         max-width: calc(100vw - 64px )
         min-width: calc(100vw - 64px )
