@@ -93,8 +93,26 @@
 
         </div>
     </AboutSection>
-    <AboutSection :index="4">
+    <AboutSection :index="4" :flipLeft="true" :flipRight="true">
         <!-- Members -->
+        <div slot="left" class="contentWrapper flipped left noOverflow">
+            <img class="titleIconMedHeight" src="assets/about_sectionMembers_titleIconBig.svg"/>
+
+            <div class="titularSection">
+                <!-- TODO: Update the image source here -->
+                <img class="iconSmall" src="assets/about_sectionMembers_titleIcon.svg"/>
+                <h1>成員介紹</h1>
+                <h2>Members</h2>
+            </div>
+
+            <div class="subjectSection">
+                <p>一年中,會發生哪些事情呢?</p>
+                <p>從熱呼呼的七八月,夏天催著滿身的汗水, 到九月十月,開學再次踏入令人懷念的校園</p>
+            </div>
+        </div>
+        <div slot="right" class="contentWrapper">
+
+        </div>
     </AboutSection>
 
     <IndicatorGroup></IndicatorGroup>
@@ -193,6 +211,12 @@ export default {
         bottom: -8vw
         left: 0vw
         max-width: 37.5vw
+    .titleIconMedHeight
+        position: fixed
+        bottom: 0vw
+        left: 6vw
+        max-width: 24vw
+    
 
     .titularSection
         margin: 4px 0 30px 0
