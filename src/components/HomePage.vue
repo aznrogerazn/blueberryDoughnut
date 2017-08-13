@@ -24,9 +24,7 @@
                     <div class="secondary">OF CREATIVITY</div>
                 </div>
             </div>
-            <div class="onCorners topLeft">
-                <img :class="pageLogoClass" src="assets/index__pageLogo.svg"/>
-            </div>
+            
             <div :class="tagline1Class">
                 <span>創意，是永無止境探究世界的真實面貌</span>
                 <div class="decor"></div>
@@ -494,11 +492,20 @@ export default {
         },
 
         /**
-         * Handles Scroll Event
+         * Handles Section Scroll Event
          * @func
          */
-        handleScroll (eV) {
-            
+        onSectionChange (eV) {
+            switch (this.currentSection) {
+                case 1:
+                    this.$store.dispatch('changePageLogoState', 0);
+                    break;
+                case 4:
+                    this.$store.dispatch('changePageLogoState', 2);
+                    break;
+                default:
+                    this.$store.dispatch('changePageLogoState', 1);
+            }
             
         },
         handleMouseWheel (eV) {
@@ -546,6 +553,9 @@ export default {
                         }, 500);
                     }});
             }
+
+            // Trigger callback
+            this.onSectionChange();
         },
         // Select English
         selectEN () {
@@ -612,15 +622,14 @@ export default {
     },
     mounted () {
         // Add scroll event listeners
+        this.onSectionChange();
         document.body.scrollTop = 0;
-        window.addEventListener('scroll', this.handleScroll);
         window.addEventListener('mousewheel', this.handleMouseWheel);
         window.scrollTo(0,0);
         window['home'] = this
     },
     beforeDestroy () {
         // Remove scroll event listeners
-        window.removeEventListener('scroll', this.handleScroll);
         window.removeEventListener('mousewheel', this.handleMouseWheel);
     },
     watch: {

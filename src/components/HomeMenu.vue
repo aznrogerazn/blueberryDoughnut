@@ -1,37 +1,39 @@
 <template>
-<div v-show="menuEnabled" class="persistent transitionFast menuBgColour">
-    <div class="float">
-        <div class="onCorners topRight" @click="toggleMenu">
-            <svg :style="{width:'40px',height:'60px'}" class="menuIcon">
-                <line x1="0" y1="10" x2="28" y2="38" class="iconLine" />
-                <line x1="0" y1="38" x2="28" y2="10" class="iconLine" />
+<transition name="menuLayer">
+    <div v-show="menuEnabled" class="persistent transitionFast menuBgColour">
+        <div class="float">
+            <div class="onCorners topRight" @click="toggleMenu">
+                <svg :style="{width:'40px',height:'60px'}" class="menuIcon">
+                    <line x1="0" y1="10" x2="28" y2="38" class="iconLine" />
+                    <line x1="0" y1="38" x2="28" y2="10" class="iconLine" />
+                    
+                </svg>
+            </div>
+            <div ref="menuShadow" class="menuShadow">
+                <div class="item">{{getTranslation('MENU.INTRO')}}</div>
+                <div class="item">{{getTranslation('MENU.CENTRE')}}</div>
+                <div class="item">{{getTranslation('MENU.COURSES')}}</div>
+                <div class="item">{{getTranslation('MENU.SERVICES')}}</div>
+                <div class="item">{{getTranslation('MENU.NEWS')}}</div>
+                <div class="item">{{getTranslation('MENU.QA')}}</div>
+            </div>
+            <div ref="menuDisplay" class="menuDisplay">
+                <router-link to="/about">
+                    <div class="item">_{{getTranslation('MENU.INTRO')}}</div>
+                </router-link>
+                <div class="item">_{{getTranslation('MENU.CENTRE')}}</div>
+                <div class="item">_{{getTranslation('MENU.COURSES')}}</div>
+                <div class="item">_{{getTranslation('MENU.SERVICES')}}</div>
+                <div class="item">_{{getTranslation('MENU.NEWS')}}</div>
+                <div class="item">_{{getTranslation('MENU.QA')}}</div>
+            </div>
+            <div class="onCorners bottomLeft langSelect">
                 
-            </svg>
-        </div>
-        <div ref="menuShadow" class="menuShadow">
-            <div class="item">{{getTranslation('MENU.INTRO')}}</div>
-            <div class="item">{{getTranslation('MENU.CENTRE')}}</div>
-            <div class="item">{{getTranslation('MENU.COURSES')}}</div>
-            <div class="item">{{getTranslation('MENU.SERVICES')}}</div>
-            <div class="item">{{getTranslation('MENU.NEWS')}}</div>
-            <div class="item">{{getTranslation('MENU.QA')}}</div>
-        </div>
-        <div ref="menuDisplay" class="menuDisplay">
-            <router-link to="/about">
-                <div class="item">_{{getTranslation('MENU.INTRO')}}</div>
-            </router-link>
-            <div class="item">_{{getTranslation('MENU.CENTRE')}}</div>
-            <div class="item">_{{getTranslation('MENU.COURSES')}}</div>
-            <div class="item">_{{getTranslation('MENU.SERVICES')}}</div>
-            <div class="item">_{{getTranslation('MENU.NEWS')}}</div>
-            <div class="item">_{{getTranslation('MENU.QA')}}</div>
-        </div>
-        <div class="onCorners bottomLeft langSelect">
-            
-            <span class="label"><span class="selector" @click="selectEN">EN</span> / <span class="selector" @click="selectZH">中文</span></span>
+                <span class="label"><span class="selector" @click="selectEN">EN</span> / <span class="selector" @click="selectZH">中文</span></span>
+            </div>
         </div>
     </div>
-</div>
+</transition>
 </template>
 
 <script>
@@ -100,17 +102,20 @@ export default {
     },
     mounted () {
         // TODO: add mobile gyroscope support
-        window.addEventListener('mousemove', this.handleMouseMove);
-        window['HomeMenu'] = this;
-        console.log(this.menuEnabled)
+        //window.addEventListener('mousemove', this.handleMouseMove);
     },
     beforeDestroy () {
         // TODO: add mobile gyroscope support
-        window.removeEventListener('mousemove', this.handleMouseMove);
-        window['HomeMenu'] = null;
+        //window.removeEventListener('mousemove', this.handleMouseMove);
     },
     watch: {
-        
+        menuEnabled () {
+            if (!this.menuEnabled) {
+                window.removeEventListener('mousemove', this.handleMouseMove);
+            } else {
+                window.addEventListener('mousemove', this.handleMouseMove);
+            }
+        }
     }
   
 }
@@ -184,4 +189,17 @@ export default {
         padding-right: 10px
     .selector:hover
         cursor: pointer
+
+/* Transitions */
+.menuLayer-enter-active, .menuLayer-leave-active 
+  +homePageTransitionFast
+  
+
+.menuLayer-enter 
+  opacity: 0
+
+.menuLayer-leave-to 
+  opacity: 0
+  pointer-events: none
+
 </style>

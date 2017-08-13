@@ -6,6 +6,7 @@
     
     <HomeMenu @selectLang="selectLangHandler"></HomeMenu>
     <MenuButton></MenuButton>
+    <PageLogo></PageLogo>
   </div>
 </template>
 
@@ -17,12 +18,14 @@ import store from './vuex';
 // Required, Global Components
 import HomeMenu from '@/components/HomeMenu';
 import MenuButton from '@/components/persistent/MenuButton';
+import PageLogo from '@/components/persistent/PageLogo';
 
 export default {
   name: 'App',
   components: {
     HomeMenu,
-    MenuButton
+    MenuButton,
+    PageLogo
   },
   store,          // Store declared for all children
                   // Refer to this with this.$store in child
@@ -45,7 +48,8 @@ export default {
 
       // Close the menu
       this.closeMenu();
-      
+      // Set page logo to displaying state
+      this.changePageLogoState(1);
     }
   },
   created () {
@@ -58,7 +62,8 @@ export default {
   methods: {
     ...mapActions({
       toggleMenu: 'toggleMenu',
-      closeMenu: 'closeMenu'
+      closeMenu: 'closeMenu',
+      changePageLogoState: 'changePageLogoState'
     }),
     handleRouteChange (newRoute) {
       // Determine if Toolbar.vue needs to be shown or not

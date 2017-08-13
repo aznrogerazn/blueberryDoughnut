@@ -9,11 +9,14 @@ Vue.use(Vuex);
 
 var store = new Vuex.Store({
     state: {
-        count: 0,
-        menuEnabled: false
+        menuEnabled: false,
+        pageLogoState: 0,     // 0: 'pageLogo', 1: 'pageLogo up', 2: 'pageLogo up inverted'
+        pageSectionIndex: 0   // Resets every route change
     },
     getters: {
-        menuEnabled: state => state.menuEnabled
+        menuEnabled: state => state.menuEnabled,
+        pageLogoState: state => state.pageLogoState,
+        pageSectionIndex: state => state.pageSectionIndex
     },
 
 
@@ -31,6 +34,14 @@ var store = new Vuex.Store({
         },
         closeMenu (state) {
             state.menuEnabled = false;
+        },
+        changePageLogoState (state, payload) {
+            if ((typeof payload) != 'number') return;
+            state.pageLogoState = payload;
+        },
+        changePageSectionIndex (state, payload) {
+            if ((typeof payload) != 'number') return;
+            state.pageSectionIndex = payload;
         }
     },
 
@@ -41,6 +52,12 @@ var store = new Vuex.Store({
         },
         closeMenu ({ commit }) {
             commit('closeMenu');
+        },
+        changePageLogoState ({ commit }, payload) {
+            commit('changePageLogoState', payload);
+        },
+        changePageSectionIndex ({ commit }, payload) {
+            commit('changePageSectionIndex', payload);
         }
     }
 });
