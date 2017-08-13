@@ -13,10 +13,11 @@
                 <p>D-School積極的與各院討論合作，讓不同系所的老師共同腦力激盪，一同架構學院課程的主幹。</p>
                 <p>學生在D-School不僅可以學會解決問題的方法，更可利用學校提供的資源與設備，在實作中心把想法實踐！</p>
             </div>
+            <div class="button">了解更多！</div>
             
         </div>
         <div slot="right">
-            RIGHT_SLOT
+            <img class="bigD" src="assets/about_sectionAbout_BigD.png"/>
         </div>
     </AboutSection>
     <AboutSection>
@@ -106,8 +107,22 @@ export default {
         p
             padding: 8px 0
 
+    .button
+        position: relative
+        display: inline-block
+        padding: 8px 30px 6px 30px
+        background: $theme1
+        color: white
+        font-weight: 700
+        font-size: 16px
+
 .contentWrapper.left
     text-align: left
 
+
+// Exclusive ones
+
+.bigD
+    max-width: 40vw
 
 </style>
