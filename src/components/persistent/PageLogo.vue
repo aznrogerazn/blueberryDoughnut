@@ -34,7 +34,7 @@ export default {
                 case 1:
                     return 'pageLogo up'
                 case 2: 
-                    return 'pageLogo'
+                    return 'pageLogo up inverted'
                 default:
                     return 'pageLogo'
             }

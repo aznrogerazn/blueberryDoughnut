@@ -1,6 +1,7 @@
 <template>
   <div class="">
     <AboutSection :themeRight="true" :index="0">
+        <!-- About -->
         <div slot="left" class="contentWrapper left">
             
             <div class="titularSection">
@@ -23,6 +24,7 @@
         </div>
     </AboutSection>
     <AboutSection :index="1">
+        <!-- Media -->
         <div slot="left" class="contentWrapper left noOverflow">
             
             <img class="titleIconBig" src="assets/about_sectionMedias_titleIconBig.svg"/>
@@ -68,21 +70,51 @@
         </div>
     </AboutSection>
     <AboutSection :index="2">
-    
+        <!-- // Q&A -->
     </AboutSection>
+    <AboutSection :index="3" :flipLeft="true" :flipRight="true">
+        <!-- Chronology -->
+        <div slot="left" class="contentWrapper flipped left noOverflow">
+            <img class="titleIconMedium" src="assets/about_sectionChronology_titleIconBig.svg"/>
+
+            <div class="titularSection">
+                <!-- TODO: Update the image source here -->
+                <img class="iconSmall" src="assets/about_sectionChronology_titleIcon.svg"/>
+                <h1>學院年表</h1>
+                <h2>Chronology</h2>
+            </div>
+
+            <div class="subjectSection">
+                <p>一年中,會發生哪些事情呢?</p>
+                <p>從熱呼呼的七八月,夏天催著滿身的汗水, 到九月十月,開學再次踏入令人懷念的校園</p>
+            </div>
+        </div>
+        <div slot="right" class="contentWrapper">
+
+        </div>
+    </AboutSection>
+    <AboutSection :index="4">
+        <!-- Members -->
+    </AboutSection>
+
+    <IndicatorGroup></IndicatorGroup>
   </div>
 </template>
 
 <script>
+// Vuex
+import { mapGetters, mapActions } from 'vuex';
 
-
+import IndicatorGroup from '@/components/reused/IndicatorGroup';
 import AboutSection from '@/components/page-sections/AboutSection';
+
 import AboutSection1 from '@/components/page-sections/AboutSection1';
 
 export default {
     name: 'AboutPage',
     components: {
-        AboutSection
+        AboutSection,
+        IndicatorGroup
     },
     data () {
         return {
@@ -108,9 +140,28 @@ export default {
                 return ref;
             }
             return LANG[name];
-        }
+        },
+        ...mapActions({
+            changePageLogoState: 'changePageLogoState',
+            setMenuStyle: 'setMenuStyle',
+            changePageLogoState: 'changePageLogoState'
+        })
     },
     computed: {
+        ...mapGetters({
+            pageSectionIndex: 'pageSectionIndex'
+        })
+    },
+    watch: {
+        pageSectionIndex (newVal) {
+            if (newVal >= 3) {
+                this.setMenuStyle(1);
+                this.changePageLogoState(2);
+            } else {
+                this.setMenuStyle(0);
+                this.changePageLogoState(1);
+            }
+        }
     }
   
 }
@@ -137,6 +188,11 @@ export default {
         bottom: -8vw
         left: -5vw
         max-width: 48vw
+    .titleIconMedium
+        position: fixed
+        bottom: -8vw
+        left: 0vw
+        max-width: 37.5vw
 
     .titularSection
         margin: 4px 0 30px 0
@@ -167,6 +223,30 @@ export default {
         color: white
         font-weight: 700
         font-size: 16px
+
+// Flipped version
+.contentWrapper.flipped
+    position: relative
+    padding: 0 64px
+    color: white
+
+    h1, h2, h3, h4, h5
+        color: white
+    h1
+        +scaleHeaderType (3)
+    
+    .titularSection::after
+        border-bottom: 6px solid white
+
+    .button
+        position: relative
+        display: inline-block
+        padding: 8px 30px 6px 30px
+        background: white
+        color: $theme1
+        font-weight: 700
+        font-size: 16px
+
 
 // Multi-Column Typesetting
 .row

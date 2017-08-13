@@ -10,12 +10,14 @@ Vue.use(Vuex);
 var store = new Vuex.Store({
     state: {
         menuEnabled: false,
+        menuStyle: 0,
         pageLogoState: 0,     // 0: 'pageLogo', 1: 'pageLogo up', 2: 'pageLogo up inverted'
         pageSectionIndex: 0,  // Resets every route change
         allowScrolling: true  // Allows mouse wheel, controlled by <App>
     },
     getters: {
         menuEnabled: state => state.menuEnabled,
+        menuStyle: state => state.menuStyle,
         pageLogoState: state => state.pageLogoState,
         pageSectionIndex: state => state.pageSectionIndex,
         allowScrolling: state => state.allowScrolling,
@@ -36,6 +38,10 @@ var store = new Vuex.Store({
         },
         closeMenu (state) {
             state.menuEnabled = false;
+        },
+        setMenuStyle (state, payload) {
+            if ((typeof payload) != 'number') return;
+            state.menuStyle = payload;
         },
         changePageLogoState (state, payload) {
             if ((typeof payload) != 'number') return;
@@ -61,6 +67,9 @@ var store = new Vuex.Store({
         },
         closeMenu ({ commit }) {
             commit('closeMenu');
+        },
+        setMenuStyle({ commit }, payload) {
+            commit('setMenuStyle', payload)
         },
         changePageLogoState ({ commit }, payload) {
             commit('changePageLogoState', payload);

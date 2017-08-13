@@ -3,9 +3,9 @@
         <div class="float">
             <div class="onCorners topRight" @click="$store.dispatch('toggleMenu')">
                 <svg :style="{width:'40px',height:'60px'}" class="menuIcon">
-                    <line x1="0" y1="10" x2="28" y2="10" :style="{stroke:'#FFF',strokeWidth:'3px'}"/>
-                    <line x1="0" y1="22" x2="28" y2="22" :style="{stroke:'#FFF',strokeWidth:'3px'}"/>
-                    <line x1="0" y1="34" x2="28" y2="34" :style="{stroke:'#FFF',strokeWidth:'3px'}"/>
+                    <line x1="0" y1="10" x2="28" y2="10" :style="strokeStyle"/>
+                    <line x1="0" y1="22" x2="28" y2="22" :style="strokeStyle"/>
+                    <line x1="0" y1="34" x2="28" y2="34" :style="strokeStyle"/>
                 </svg>
             </div>
         </div>
@@ -16,7 +16,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-    name: 'default',
+    name: 'MenuButton',
     data () {
         return {
 
@@ -29,8 +29,19 @@ export default {
         }
     },
     computed: {
+        strokeStyle () {
+            switch (this.menuStyle) {
+                case 0:
+                    return {stroke:'#FFF',strokeWidth:'3px'};
+                    
+                case 1:
+                    return {stroke:'#FF5559',strokeWidth:'3px'};
+            }
+            
+        },
         ...mapGetters({
-            menuEnabled: 'menuEnabled'
+            menuEnabled: 'menuEnabled',
+            menuStyle: 'menuStyle'
         })
     },
     methods: {

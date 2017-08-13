@@ -28,6 +28,8 @@ export default {
         leftWrapperClass () {
             if (this.themeLeft) {
                 return 'leftWrapper themed'
+            } else if (this.flipLeft) {
+                return 'leftWrapper flipped'
             } else {
                 return 'leftWrapper'
             }
@@ -35,6 +37,8 @@ export default {
         rightWrapperClass () {
             if (this.themeRight) {
                 return 'rightWrapper themed'
+            } else if (this.flipRight) {
+                return 'rightWrapper flipped'
             } else {
                 return 'rightWrapper'
             }
@@ -71,6 +75,16 @@ export default {
             required: false
         },
         themeRight: {
+            type: Boolean,
+            default: false,
+            required: false
+        },
+        flipLeft: {
+            type: Boolean,
+            default: false,
+            required: false
+        },
+        flipRight: {
             type: Boolean,
             default: false,
             required: false
@@ -133,6 +147,11 @@ export default {
 
     .themed
         background: $bgColour !important
+    
+    .leftWrapper.flipped
+        background: $theme1
+    .rightWrapper.flipped
+        background: $gradient0
 
 @media screen and (max-width: $mobileWidth)
     .aboutSection
