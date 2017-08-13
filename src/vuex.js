@@ -11,12 +11,14 @@ var store = new Vuex.Store({
     state: {
         menuEnabled: false,
         pageLogoState: 0,     // 0: 'pageLogo', 1: 'pageLogo up', 2: 'pageLogo up inverted'
-        pageSectionIndex: 0   // Resets every route change
+        pageSectionIndex: 0,  // Resets every route change
+        allowScrolling: true  // Allows mouse wheel, controlled by <App>
     },
     getters: {
         menuEnabled: state => state.menuEnabled,
         pageLogoState: state => state.pageLogoState,
-        pageSectionIndex: state => state.pageSectionIndex
+        pageSectionIndex: state => state.pageSectionIndex,
+        allowScrolling: state => state.allowScrolling,
     },
 
 
@@ -39,9 +41,16 @@ var store = new Vuex.Store({
             if ((typeof payload) != 'number') return;
             state.pageLogoState = payload;
         },
-        changePageSectionIndex (state, payload) {
+        setPageSectionIndex (state, payload) {
             if ((typeof payload) != 'number') return;
             state.pageSectionIndex = payload;
+        },
+        toggleAllowScrolling (state, payload) {
+            if (!payload) {
+                state.allowScrolling = !state.allowScrolling;
+            } else if (typeof payload === 'boolean') {
+                state.allowScrolling = payload;
+            }
         }
     },
 
@@ -56,8 +65,14 @@ var store = new Vuex.Store({
         changePageLogoState ({ commit }, payload) {
             commit('changePageLogoState', payload);
         },
-        changePageSectionIndex ({ commit }, payload) {
-            commit('changePageSectionIndex', payload);
+        setPageSectionIndex ({ commit }, payload) {
+            commit('setPageSectionIndex', payload);
+        },
+        enableScrolling ({ commit }) {
+            commit('toggleAllowScrolling', true);
+        },
+        disableScrolling ({ commit }) {
+            commit('toggleAllowScrolling', false);
         }
     }
 });

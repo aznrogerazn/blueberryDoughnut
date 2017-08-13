@@ -45,13 +45,7 @@
                 <img class="icon" src="assets/index__heroDoubleCircle.svg"/>
                 <span class="label"><span class="selector" @click="selectEN">EN</span> / <span class="selector" @click="selectZH">中文</span></span>
             </div>
-            <div :class="menuButtonClass" @click="$store.dispatch('toggleMenu')">
-                <svg :style="{width:'40px',height:'60px'}" class="menuIcon">
-                    <line x1="0" y1="10" x2="28" y2="10" :style="{stroke:'#FFF',strokeWidth:'3px'}"/>
-                    <line x1="0" y1="22" x2="28" y2="22" :style="{stroke:'#FFF',strokeWidth:'3px'}"/>
-                    <line x1="0" y1="34" x2="28" y2="34" :style="{stroke:'#FFF',strokeWidth:'3px'}"/>
-                </svg>
-            </div>
+            
             <div class="centred" :style="{pointerEvents:'none'}">
                 <div :class="centreLineWrapperClass">
                     <svg ref="centreLine" class="centreLine">
@@ -231,6 +225,9 @@
 </template>
 
 <script>
+// Vuex
+import { mapGetters, mapActions } from 'vuex';
+
 import Circle1 from '@/components/circles/Circle1';
 import HomeSection1 from '@/components/page-sections/HomeSection1';
 import HomeSection2 from '@/components/page-sections/HomeSection2';
@@ -274,6 +271,11 @@ export default {
         HomeSection5
     },
     computed: {
+        // Vuex store linked
+        ...mapGetters({
+            pageSectionIndex: 'pageSectionIndex'
+        }),
+
         pageLogoClass () {
             switch (this.currentSection) {
                 case 1:
@@ -621,21 +623,22 @@ export default {
         }
     },
     mounted () {
-        // Add scroll event listeners
+        // Note: scroll/mouseWheel events moved to <App>
         this.onSectionChange();
         document.body.scrollTop = 0;
-        window.addEventListener('mousewheel', this.handleMouseWheel);
         window.scrollTo(0,0);
         window['home'] = this
     },
     beforeDestroy () {
-        // Remove scroll event listeners
-        window.removeEventListener('mousewheel', this.handleMouseWheel);
+        // Note: scroll/mouseWheel events moved to <App>
     },
     watch: {
         currentSection (newVal, oldVal) {
             //
             console.log('[HomePage] Scrolling to Section #' + newVal);
+        },
+        pageSectionIndex (newVal) {
+            this.currentSection = (newVal + 1);
         }
     }
   

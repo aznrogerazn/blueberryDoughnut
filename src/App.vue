@@ -12,7 +12,7 @@
 
 <script>
 // Required Libraries
-import {Vuex, mapActions} from 'vuex';
+import {Vuex, mapActions, mapGetters} from 'vuex';
 // Vuex Store
 import store from './vuex';
 // Required, Global Components
@@ -46,10 +46,7 @@ export default {
       console.warn('[App] Route changed:');
       this.handleRouteChange(newValue);
 
-      // Close the menu
-      this.closeMenu();
-      // Set page logo to displaying state
-      this.changePageLogoState(1);
+      
     }
   },
   created () {
@@ -58,13 +55,90 @@ export default {
   mounted () {
     // Detect route
     this.handleRouteChange(this.$route);
+    window.addEventListener('mousewheel', this.handleMouseWheel);
+  },
+  computed: {
+    ...mapGetters({
+      allowScrolling: 'allowScrolling',
+      pageSectionIndex: 'pageSectionIndex'
+    })
   },
   methods: {
     ...mapActions({
       toggleMenu: 'toggleMenu',
       closeMenu: 'closeMenu',
-      changePageLogoState: 'changePageLogoState'
+      changePageLogoState: 'changePageLogoState',
+      setPageSectionIndex: 'setPageSectionIndex',
+      enableScrolling: 'enableScrolling',
+      disableScrolling: 'disableScrolling'
     }),
+
+
+    handleMouseWheel (eV) {
+      eV.preventDefault();
+      
+      console.log('<App> handleMouseWheel() called');
+      //
+      if (!this.allowScrolling) {
+          return;
+      }
+
+      let pageHeight = (window.innerHeight + 0);
+      var body = document.body, html = document.documentElement;
+      let maxHeight = Math.max( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+      let maxSectionHeight = maxHeight / pageHeight;
+      console.log('maxSectionHeight == ' + maxSectionHeight);
+
+      if (eV.deltaY > 0) {
+          console.log('向下捲動');
+          // 向下捲動
+          if ((this.pageSectionIndex + 1) < maxSectionHeight) {
+              this.setPageSectionIndex(this.pageSectionIndex + 1);
+          } else {
+              return;
+          }
+          this.disableScrolling();
+          let scrollVal = pageHeight * this.pageSectionIndex;
+          $('body').velocity('scroll', {
+              duration: 800,
+              easing: 'easeInOutCirc',
+              offset: scrollVal + 'px',
+              complete: () => {
+                  setTimeout(() => {
+                      this.enableScrolling();
+                      console.log(this.pageSectionIndex);
+                  }, 500);
+              }});
+      } else {
+          console.log('向上捲動');
+          // 向上捲動
+          if (this.pageSectionIndex > 0) {
+              this.setPageSectionIndex(this.pageSectionIndex - 1);
+          } else {
+              return;
+          }
+          this.disableScrolling();
+          let scrollVal = pageHeight * this.pageSectionIndex;
+          $('body').velocity('scroll', {
+              duration: 800,
+              easing: 'easeInOutCirc',
+              offset: scrollVal + 'px',
+              complete: () => {
+                  setTimeout(() => {
+                      this.enableScrolling();
+                      console.log(this.pageSectionIndex);
+                  }, 500);
+              }});
+      }
+
+      // Callback should be implemented on individual component with following expression:
+      // 1. Bind the computed properties to Vuex store:
+      //    computed: { ...mapGetters({ pageSectionIndex: 'pageSectionIndex' })}
+      // 2. Watch the props by:
+      //    watch: { pageSectionIndex () { // do things here } }
+
+    },
     handleRouteChange (newRoute) {
       // Determine if Toolbar.vue needs to be shown or not
       if (newRoute.path.indexOf('player') != -1) {
@@ -73,6 +147,14 @@ export default {
       } else {
         this.showToolbar = true;
       }
+
+      // Close the menu
+      this.closeMenu();
+      // Set page logo to displaying state
+      this.changePageLogoState(1);
+      // Reset scrollTop      
+      this.setPageSectionIndex(0);
+
     },
     /**
      * Handles language selection from child components
