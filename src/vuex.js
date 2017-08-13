@@ -66,6 +66,7 @@ var store = new Vuex.Store({
             commit('changePageLogoState', payload);
         },
         setPageSectionIndex ({ commit }, payload) {
+            console.log('[store] setPageSectionIndex: ' + payload);
             commit('setPageSectionIndex', payload);
         },
         enableScrolling ({ commit }) {

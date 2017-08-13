@@ -77,7 +77,7 @@ export default {
     handleMouseWheel (eV) {
       eV.preventDefault();
       
-      console.log('<App> handleMouseWheel() called');
+      console.log('<App> handleMouseWheel() called: \n allowScrolling = ' + this.allowScrolling + '\n pageSectionIndex = ' + this.pageSectionIndex);
       //
       if (!this.allowScrolling) {
           return;
@@ -140,6 +140,7 @@ export default {
 
     },
     handleRouteChange (newRoute) {
+      console.warn('<App> handleRouteChange called')
       // Determine if Toolbar.vue needs to be shown or not
       if (newRoute.path.indexOf('player') != -1) {
         // Is player
@@ -154,6 +155,20 @@ export default {
       this.changePageLogoState(1);
       // Reset scrollTop      
       this.setPageSectionIndex(0);
+
+      // Temporarily disable interaction
+      this.disableScrolling();
+
+      // Scoll to top
+      $('body').velocity('scroll', {
+      duration: 800,
+      easing: 'easeInOutCirc',
+      offset: '0px',
+      complete: () => {
+          setTimeout(() => {
+            this.enableScrolling();
+          }, 500);
+      }});
 
     },
     /**

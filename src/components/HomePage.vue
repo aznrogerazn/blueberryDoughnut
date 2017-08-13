@@ -639,6 +639,7 @@ export default {
         },
         pageSectionIndex (newVal) {
             this.currentSection = (newVal + 1);
+            this.onSectionChange();
         }
     }
   

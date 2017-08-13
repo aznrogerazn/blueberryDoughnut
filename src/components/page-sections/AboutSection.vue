@@ -4,10 +4,10 @@
       REMINDER: CSS Classes on slots are removed in Vue 2.0
                 Remember to properly use wrapper elements
      -->
-    <div class="leftWrapper">
+    <div :class="leftWrapperClass">
         <slot name="left"></slot>
     </div>
-    <div class="rightWrapper">
+    <div :class="rightWrapperClass">
         <slot name="right"></slot>
     </div>
   </div>
@@ -21,10 +21,34 @@ export default {
 
         }
     },
+    computed: {
+        leftWrapperClass () {
+            if (this.themeLeft) {
+                return 'leftWrapper themed'
+            } else {
+                return 'leftWrapper'
+            }
+        },
+        rightWrapperClass () {
+            if (this.themeRight) {
+                return 'rightWrapper themed'
+            } else {
+                return 'rightWrapper'
+            }
+        }
+    },
     props: {
         contents: {
             required: false,
             type: Object
+        },
+        themeLeft: {
+            type: Boolean,
+            default: false
+        },
+        themeRight: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -60,16 +84,22 @@ export default {
 
 .aboutSection
     display: flex
+    
 
     .leftWrapper
         +fullHeightPadded
-        flex: 2
+        +flexCentre
+        flex: 3
         background: $gradient0
     
     .rightWrapper
         +fullHeightPadded
-        flex: 3
+        +flexCentre
+        flex: 5
         background: $theme1
+
+    .themed
+        background: $bgColour !important
 
 @media screen and (max-width: $mobileWidth)
     .aboutSection

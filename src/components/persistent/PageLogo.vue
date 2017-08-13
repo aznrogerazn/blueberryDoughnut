@@ -2,7 +2,9 @@
   <div class="persistent pageLogoLayer">
     <div class="float">
         <div class="onCorners topLeft">
-            <img :class="pageLogoClass" src="assets/index__pageLogo.svg"/>
+            <router-link to="/">
+                <img :class="pageLogoClass" src="assets/index__pageLogo.svg"/>
+            </router-link>
         </div>
     </div>
   </div>
