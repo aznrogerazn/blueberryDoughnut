@@ -96,27 +96,27 @@
                     <div class="contentLimiter">
                         <div class="upper">
                             <img width="90" src="assets/index__iconFeature1.svg"/>
-                            <div class="header">D-Act</div>
-                            <div class="sub">Sky is the limit to what the D-Act can offer.</div>
-                            <div class="text">以不同的形式，不同的議題，創造更多生活化的交流，帶動人潮與帶動人潮與溫度的匯聚，沖刷認知的堡壘。並在向前衝刺後留下寶貴的經驗。</div>
+                            <h2 class="header">D-Act</h2>
+                            <h3 class="sub">Sky is the limit to what the D-Act can offer.</h3>
+                            <p class="text">以不同的形式，不同的議題，創造更多生活化的交流，帶動人潮與帶動人潮與溫度的匯聚，沖刷認知的堡壘。並在向前衝刺後留下寶貴的經驗。</p>
                         </div>
                         <div class="button">學院簡介</div>
                     </div>
                     <div class="contentLimiter">
                         <div class="upper">
                             <img width="90" src="assets/index__iconFeature2.svg"/>
-                            <div class="header">D-Course</div>
-                            <div class="sub">We have no answer. Find your own one.</div>
-                            <div class="text">洞悉真正的問題洞悉真正的問題，才能真的一勞永逸。而這份才能誰也不能給你，請自己來培養吧！</div>
+                            <h2 class="header">D-Course</h2>
+                            <h3 class="sub">We have no answer. Find your own one.</h3>
+                            <p class="text">洞悉真正的問題洞悉真正的問題，才能真的一勞永逸。而這份才能誰也不能給你，請自己來培養吧！</p>
                         </div>
                         <div class="button">學院課程</div>
                     </div>
                     <div class="contentLimiter">
                         <div class="upper">
                             <img width="90" src="assets/index__iconFeature3.svg"/>
-                            <div class="header">MakerSpace</div>
-                            <div class="sub">"Never Stop Trying"</div>
-                            <div class="text">親自動手實作，驗證設計，大師級的實作技術學習，以手作激發創意、從技藝汲取創新。</div>
+                            <h2 class="header">MakerSpace</h2>
+                            <h3 class="sub">"Never Stop Trying"</h3>
+                            <p class="text">親自動手實作，驗證設計，大師級的實作技術學習，以手作激發創意、從技藝汲取創新。</p>
                         </div>
                         <div class="button">實作中心</div>
                     </div>
@@ -136,7 +136,7 @@
                             </div>
                             <div class="text">
                                 <div class="time">2017-07-15</div>
-                                <div class="header">用一週的時間刨開心中對木工藝的愛</div>
+                                <h2 class="header">用一週的時間刨開心中對木工藝的愛</h2>
                                 <div class="sub"></div>
                                 <p class="intro">「動手做」，在台灣教育裡的缺席造成許多創新創意的空洞化，有鑑於此，帶領台大學生投入木工藝的領域，是D-School開課以來努力的方向。這一次非常感謝北科大W.School全心、全力的投入！由陳殿禮老師所帶領的團隊，從最初的課程設計，到全程課程的陪同與協助，到最後完美的成果發表。不僅提供完整的機械設備和環境，創造48小時的深刻體驗課程。</p>
                                 <div class="actions">
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                             <div class="text">
-                                <div class="header">茶香之中人情更濃</div>
+                                <h2 class="header">茶香之中人情更濃</h2>
                                 <div class="sub">用樂音傳唱世代的記憶<span class="time">2017-05-28</span></div>
                                 <p class="intro">舞臺上 蔡佳芬老師悠悠長笛聲與吉他樂音中能夠聽見「殺青」時機械運作的聲響。彷彿坪林的茶農日常，透過聲音已描繪成形。</p>
                             </div>
@@ -166,7 +166,7 @@
                                 </div>
                             </div>
                             <div class="text">
-                                <div class="header">茶香之中人情更濃</div>
+                                <h2 class="header">茶香之中人情更濃</h2>
                                 <div class="sub">用樂音傳唱世代的記憶<span class="time">2017-05-28</span></div>
                                 <p class="intro">舞臺上 蔡佳芬老師悠悠長笛聲與吉他樂音中能夠聽見「殺青」時機械運作的聲響。彷彿坪林的茶農日常，透過聲音已描繪成形。</p>
                             </div>
@@ -178,8 +178,8 @@
                 </div>
 
                 <div class="onCorners topLeft">
-                    <div class="header1">焦點碰撞</div>
-                    <div class="header2">INSPIRATION</div>
+                    <h4 class="header1">焦點碰撞</h4>
+                    <h1 class="header2">INSPIRATION</h1>
                 </div>
 
             </div>
@@ -194,15 +194,15 @@
                         </div>
                         <div class="contactWrapper">
                             <div class="contactItem">
-                                <div class="contactHeader">地址 Address</div>
+                                <h4 class="contactHeader">地址 Address</h4>
                                 <div class="contactContent">10087 台北市中正區思源街18號卓越研究大樓四樓</div>
                             </div>
                             <div class="contactItem">
-                                <div class="contactHeader">電話 Tel</div>
+                                <h4 class="contactHeader">電話 Tel</h4>
                                 <div class="contactContent">+886-2-3366-1869</div>
                             </div>
                             <div class="contactItem">
-                                <div class="contactHeader">信箱 Email</div>
+                                <h4 class="contactHeader">信箱 Email</h4>
                                 <div class="contactContent">ntudschool@ntu.edu.tw</div>
                             </div>
                         </div>
@@ -648,13 +648,13 @@ $smallCircleSize: 54px
 
 /* common styling */
 
-
 .button
     display: inline-block
     font-weight: 600
     color: $theme1
     border: 3px solid $theme1
-    padding: 5px 12px
+    padding: 8px 16px
+    letter-spacing: 1px
     transition: 0.5s
     margin-right: 5px
     // vertical-align: bottom
@@ -663,21 +663,6 @@ $smallCircleSize: 54px
     background: $theme1
     color: $bgColour
     cursor: pointer
-
-h1
-    font-size: 46px
-h2
-    font-size: 40px
-h3
-    font-size: 34px
-h4
-    font-size: 28px
-h5
-    font-size: 22px
-h6
-    font-size: 18px
-p
-    font-size: 16px
 
 /* Template Classes */
 .hideNoPointer
@@ -808,10 +793,13 @@ p
     .introWrapper
         // height: calc(80vw / 3)
         padding: 20px
+        box-sizing: border-box
         // flex-grow: 1
         display: flex
         text-align: center
-        
+        max-width: 1200px
+        margin-left: auto
+        margin-right: auto
 
         .contentLimiter
             display: inline-block
@@ -821,6 +809,7 @@ p
             width: calc(100% / 3)
             flex-shrink: 0
             padding: 10px
+            justify-content: center
 
             .upper
                 min-height: 360px
@@ -829,6 +818,7 @@ p
         color: $theme1
         font-size: 46px
         font-weight: 800
+        white-space: nowrap
     .sub
         color: $gradient0
         font-size: 20px
@@ -842,7 +832,7 @@ p
 
 
 .newsInfo
-    +homePageTransitionSlow
+    +homePageTransitionLinear
     color: $gradient0
 
     .header1
@@ -1187,7 +1177,7 @@ $indicatorCircleMargin: 20px
         .motionCircleMain.three
             cx: 50vw
             cy: 50vh
-            r: 42vw
+            r: 44vw
             stroke: $theme1 !important
             stroke-dasharray: 0
             fill: transparent
