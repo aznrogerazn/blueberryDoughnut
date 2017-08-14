@@ -33,11 +33,11 @@
             <div :class="giantQuoteClass">
                 <img :style="{width:'60px'}" src="assets/index__iconQuoteStart.svg"/>
                 <div class="text">
-                    <span class="header">全台灣第一個虛擬學院</span></br>
-                    <span class="header">創造跨領域教學環境</span>
+                    <h2 class="header">全台灣第一個虛擬學院</br>
+                    創造跨領域教學環境</h2>
                     <div :style="{margin:'15px 0 15px 0',width:'90px',borderBottom:'4px solid #FF5559'}"></div>
-                    <span>在創新創業風氣興盛後，臺大覺察學校創新教育的不足，</span><br/>
-                    <span>遂於2014年成立創新設計學院，並於2015年秋季正式授課。</span>
+                    <h5>在創新創業風氣興盛後，臺大覺察學校創新教育的不足，<br/>
+                            遂於2014年成立創新設計學院，並於2015年秋季正式授課。</h5>
                 </div>
                 <img :style="{width:'60px'}" src="assets/index__iconQouteEnd.svg"/>
             </div>
@@ -194,15 +194,15 @@
                         </div>
                         <div class="contactWrapper">
                             <div class="contactItem">
-                                <h4 class="contactHeader">地址 Address</h4>
+                                <h5 class="contactHeader">地址 Address</h5>
                                 <div class="contactContent">10087 台北市中正區思源街18號卓越研究大樓四樓</div>
                             </div>
                             <div class="contactItem">
-                                <h4 class="contactHeader">電話 Tel</h4>
+                                <h5 class="contactHeader">電話 Tel</h5>
                                 <div class="contactContent">+886-2-3366-1869</div>
                             </div>
                             <div class="contactItem">
-                                <h4 class="contactHeader">信箱 Email</h4>
+                                <h5 class="contactHeader">信箱 Email</h5>
                                 <div class="contactContent">ntudschool@ntu.edu.tw</div>
                             </div>
                         </div>
@@ -657,7 +657,17 @@ $smallCircleSize: 54px
     letter-spacing: 1px
     transition: 0.5s
     margin-right: 5px
+    margin-top: 10px
+
     // vertical-align: bottom
+
+            // .button
+            //     display: inline-block
+            //     padding: 4px 18px
+            //     border: 2px solid $gradient4
+            //     color: $gradient4
+            //     font-weight: 600
+            //     margin: 14px
 
 .button:hover
     background: $theme1
@@ -766,7 +776,7 @@ $smallCircleSize: 54px
         justify-content: space-between
 
         .smallCircle
-            +homePageTransitionSlow
+            +homePageTransitionFast
             
             
             width: $smallCircleSize
@@ -776,10 +786,10 @@ $smallCircleSize: 54px
             +hideNoPointer
         
         .smallCircle.left.three
-            transform: translate3d(-40px, -20px, 0)
+            transform: translate3d(-60px, 0px, 0)
 
         .smallCircle.right.three
-            transform: translate3d(40px, -20px, 0)
+            transform: translate3d(60px, 0px, 0)
 
 .centredInfo
     display: flex
@@ -1020,13 +1030,7 @@ $smallCircleSize: 54px
                 max-width: 500px
             .buttonSection
                 padding: 10px 0 20px 0
-            .button
-                display: inline-block
-                padding: 4px 18px
-                border: 2px solid $gradient4
-                color: $gradient4
-                font-weight: 600
-                margin: 14px
+
 
             .contactWrapper
                 font-weight: 600
@@ -1049,8 +1053,6 @@ $smallCircleSize: 54px
                             height: 10px
 
 
-                    .contactContent
-                        font-size: 1.2em    
         .right
             
             padding-left: 20px
@@ -1181,7 +1183,7 @@ $indicatorCircleMargin: 20px
             stroke: $theme1 !important
             stroke-dasharray: 0
             fill: transparent
-            stroke-width: 5px !important
+            stroke-width: 8px !important
         .motionCircleMain.four
             cx: 50vw
             cy: 50vh
@@ -1280,8 +1282,9 @@ $indicatorCircleMargin: 20px
         font-size: 22px
         font-weight: 500
         .header
-            font-size: 60px
+            font-size: 54px
             font-weight: 700
+            margin-bottom: 20px
 
 
 .langSelect

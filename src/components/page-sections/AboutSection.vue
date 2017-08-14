@@ -131,7 +131,7 @@ export default {
 
 .aboutSection
     display: flex
-    +homePageTransitionFast
+    +homePageTransitionLinear
 
     .leftWrapper
         +fullHeightPadded

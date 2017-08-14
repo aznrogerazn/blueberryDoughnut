@@ -8,7 +8,7 @@
                 <!-- TODO: Update the image source here -->
                 <img class="iconSmall" src="assets/index__pageLogo.svg"/>
                 <h1>關於學院</h1>
-                <h2>ABOUT</h2>
+                <h4>ABOUT</h4>
             </div>
 
             <div class="subjectSection">
@@ -33,7 +33,7 @@
                 <!-- TODO: Update the image source here -->
                 <img class="iconSmall" src="assets/about_sectionMedias_titleIcon.svg"/>
                 <h1>學院影音</h1>
-                <h2>MEDIA</h2>
+                <h4>MEDIA</h4>
             </div>
 
             <div class="subjectSection">
@@ -81,7 +81,7 @@
                 <!-- TODO: Update the image source here -->
                 <img class="iconSmall" src="assets/about_sectionChronology_titleIcon.svg"/>
                 <h1>學院年表</h1>
-                <h2>Chronology</h2>
+                <h4>Chronology</h4>
             </div>
 
             <div class="subjectSection">
@@ -102,7 +102,7 @@
                 <!-- TODO: Update the image source here -->
                 <img class="iconSmall" src="assets/about_sectionMembers_titleIcon.svg"/>
                 <h1>成員介紹</h1>
-                <h2>Members</h2>
+                <h4>Members</h4>
             </div>
 
             <div class="subjectSection">
@@ -189,8 +189,8 @@ export default {
 <style scoped lang="sass">
 @import '../shared'
 
-=scaleHeaderType ($scale: 1)
-    font-size: $scale * 16px
+// =scaleHeaderType ($scale: 1)
+//     font-size: $scale * 16px
 
 .contentWrapper
     position: relative
@@ -198,8 +198,8 @@ export default {
 
     h1, h2, h3, h4, h5
         color: $theme1
-    h1
-        +scaleHeaderType (3)
+    // h1
+    //     +scaleHeaderType (3)
     
     .titleIconBig
         position: fixed
@@ -224,7 +224,9 @@ export default {
         max-width: 240px
 
         .iconSmall
-            width: 40px
+            width: 60px
+            margin-bottom: 15px
+            margin-top: -15px
 
     .titularSection::after
         content: ' '
@@ -256,8 +258,8 @@ export default {
 
     h1, h2, h3, h4, h5
         color: white
-    h1
-        +scaleHeaderType (3)
+    // h1
+    //     +scaleHeaderType (3)
     
     .titularSection::after
         border-bottom: 6px solid white
@@ -327,6 +329,6 @@ export default {
 // Exclusive ones
 
 .bigD
-    max-width: 40vw
+    max-height: 80vh
 
 </style>
