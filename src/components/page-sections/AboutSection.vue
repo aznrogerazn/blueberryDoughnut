@@ -137,6 +137,7 @@ export default {
         +fullHeightPadded
         +flexCentre
         flex: 3
+        max-width: 500px
         background: $gradient0
     
     .rightWrapper
