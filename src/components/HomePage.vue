@@ -102,9 +102,6 @@
                         </div>
                         <div class="button">學院簡介</div>
                     </div>
-                    
-                </div>
-                <div class="introWrapper">
                     <div class="contentLimiter">
                         <div class="upper">
                             <img width="90" src="assets/index__iconFeature2.svg"/>
@@ -114,9 +111,6 @@
                         </div>
                         <div class="button">學院課程</div>
                     </div>
-                    
-                </div>
-                <div class="introWrapper">
                     <div class="contentLimiter">
                         <div class="upper">
                             <img width="90" src="assets/index__iconFeature3.svg"/>
@@ -652,6 +646,39 @@ export default {
 
 $smallCircleSize: 54px
 
+/* common styling */
+
+
+.button
+    display: inline-block
+    font-weight: 600
+    color: $theme1
+    border: 3px solid $theme1
+    padding: 5px 12px
+    transition: 0.5s
+    margin-right: 5px
+    // vertical-align: bottom
+
+.button:hover
+    background: $theme1
+    color: $bgColour
+    cursor: pointer
+
+h1
+    font-size: 46px
+h2
+    font-size: 40px
+h3
+    font-size: 34px
+h4
+    font-size: 28px
+h5
+    font-size: 22px
+h6
+    font-size: 18px
+p
+    font-size: 16px
+
 /* Template Classes */
 .hideNoPointer
     +hideNoPointer
@@ -779,46 +806,40 @@ $smallCircleSize: 54px
     +homePageTransitionSlow
 
     .introWrapper
-        height: calc(80vw / 3)
+        // height: calc(80vw / 3)
         padding: 20px
-        flex-grow: 1
+        // flex-grow: 1
+        display: flex
         text-align: center
         
 
         .contentLimiter
             display: inline-block
-            max-width: 430px
+            // max-width: 430px
             text-align: left
+            // flex: 1
+            width: calc(100% / 3)
+            flex-shrink: 0
+            padding: 10px
 
             .upper
-                min-height: 440px
+                min-height: 360px
 
     .header
         color: $theme1
-        font-size: 60px
+        font-size: 46px
         font-weight: 800
     .sub
         color: $gradient0
-        font-size: 24px
+        font-size: 20px
         font-weight: 600
         padding-bottom: 18px
     .text
         color: $gradient0
-        font-size: 18px
+        font-size: 16px
         padding-bottom: 20px
 
-    .button
-        display: inline-block
-        font-weight: 600
-        color: $theme1
-        border: 3px solid $theme1
-        padding: 8px 20px
-        // vertical-align: bottom
 
-    .button:hover
-        background: $theme1
-        color: $bgColour
-        cursor: pointer
 
 .newsInfo
     +homePageTransitionSlow
@@ -870,8 +891,8 @@ $smallCircleSize: 54px
             .thumbnail
                 flex-basis: 0
                 position: relative
-                width: calc((70vw - 84px) / 3)
-                
+                // width: calc((70vw - 84px) / 3)
+                width: 95%
                 .imgWrapper
                     overflow: hidden
                     width: 100%
@@ -886,7 +907,7 @@ $smallCircleSize: 54px
                 transform: translate3d(0, -32px ,0)
                 box-shadow: 0 -2px 8px 0.6px rgba(20,20,20,0.2)
                 margin: 0 8px 0 8px
-                max-height: calc(((70vw / 3))
+                // max-height: calc(((70vw / 3))
                 flex-grow: 1
                 flex-basis: 0
 
@@ -912,15 +933,15 @@ $smallCircleSize: 54px
                     font-size: 15px
                     line-height: 1.8em
 
-                .button
-                    display: inline-block
-                    border: 1px solid $theme1
-                    color: $theme1
-                    font-size: 15px
-                    font-weight: 500
-                    padding: 3px 15px
-                    margin: 2px 4px
-                    +homePageTransitionFast
+                // .button
+                //     display: inline-block
+                //     border: 1px solid $theme1
+                //     color: $theme1
+                //     font-size: 15px
+                //     font-weight: 500
+                //     padding: 3px 15px
+                //     margin: 2px 4px
+                //     +homePageTransitionFast
 
                 .button:hover
                     background: $theme1
@@ -931,6 +952,7 @@ $smallCircleSize: 54px
             flex-grow: 3
             flex-shrink: 3
             height: calc(100% - 64px)
+            // max-height: calc(100% - 64px)
             display: flex
             background: $gradient0
 
@@ -1265,9 +1287,11 @@ $indicatorCircleMargin: 20px
     .text
         display: inline-block
         vertical-align: top
-        font-size: 24px
+        font-size: 22px
+        font-weight: 500
         .header
-            font-size: 72px
+            font-size: 60px
+            font-weight: 700
 
 
 .langSelect
