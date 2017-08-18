@@ -114,8 +114,50 @@
 
         </div>
     </AboutSection>
+    <AboutSection :index="5" :flipLeft="true" :flipRight="true">
+        <!-- Members -->
+        <div slot="left" class="contentWrapper flipped left noOverflow">
+            
 
-    <IndicatorGroup></IndicatorGroup>
+            <div class="titularSection">
+                <!-- TODO: Update the image source here -->
+                <img class="iconSmall" src="assets/about_sectionMembers_titleIcon.svg"/>
+                <h1>空間介紹</h1>
+                <h2>Space</h2>
+            </div>
+
+            <div class="subjectSection">
+                <p>D-School積極的與各院討論合作，讓不同系所的老師共同腦力激盪，一同架構學院課程的主幹。</p>
+                <p>學生在D-School不僅可以學會解決問題的方法，更可利用學校提供的資源與設備，在實作中心把想法實踐</p>
+            </div>
+
+            <div class="button">了解更多！</div>
+
+        </div>
+        <div slot="right" class="" :style="{padding:0,position:'absolute',top:0,left:0,height:'100vh'}">
+                
+                <img class="spaceMap" src="assets/about_sectionMembers_spaceMap.svg"/>
+                <div class="spaceBottomInfo">
+                    <div>
+                        <img src="assets/last.png" :style="{marginBottom:'-5px',width:'240px'}"/>
+                    </div>
+                    <div class="description">
+                        <div>
+                            <div class="titleBlock">實作中心</div>
+                            <br/><br/>
+                            <p>小小的可是很多奇妙的工具和機械,就不用再說它有多熱門和受大家喜愛了!</p>
+                            <br/>
+                            <div class="buttonWrapper">
+                                <div class="button">了解更多</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </AboutSection>
+
+    <IndicatorGroup :sections="6" :left="indicatorLeft" top="calc(50vh - 70px)"></IndicatorGroup>
   </div>
 </template>
 
@@ -166,6 +208,13 @@ export default {
         })
     },
     computed: {
+        indicatorLeft () {
+            if (this.pageSectionIndex >= 3) {
+                return '20px';
+            } else {
+                return 'calc(37.5vw + 10px)';
+            }
+        },
         ...mapGetters({
             pageSectionIndex: 'pageSectionIndex'
         })
@@ -328,5 +377,41 @@ export default {
 
 .bigD
     max-width: 40vw
+
+.spaceMap
+    position: absolute
+    bottom: 50vh
+    width: 80vw
+    left: -9.25vw
+
+.spaceBottomInfo
+    position: absolute
+    bottom: 0
+    
+    width: 62.5vw
+    background: rgb(245,245,245)
+    display: flex
+    
+    .description
+        display: flex
+        +flexCentre
+        padding: $pagePadding
+
+        .titleBlock
+            display: inline-block
+            font-weight: 600
+            padding: 4px 24px 6px 24px
+            background: $theme1
+            color: white
+        p
+            font-size: 12px
+        .buttonWrapper
+            text-align: right
+            .button
+                font-size: 12px
+                font-weight: 600
+                display: inline-block
+                border: 2px solid black
+                padding: 3px 12px
 
 </style>

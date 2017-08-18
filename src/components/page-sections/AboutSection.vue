@@ -10,6 +10,9 @@
     <div :class="rightWrapperClass">
         <slot name="right"></slot>
     </div>
+    <div>
+        <slot name="abstract"></slot>
+    </div>
   </div>
 </template>
 
@@ -138,12 +141,14 @@ export default {
         +flexCentre
         flex: 3
         background: $gradient0
+        position: relative
     
     .rightWrapper
         +fullHeightPadded
         +flexCentre
         flex: 5
         background: $theme1
+        position: relative
 
     .themed
         background: $bgColour !important

@@ -1,14 +1,18 @@
 <template>
-  <div class="indicatorGroup">
-    <svg>
+  <div class="indicatorGroup" :style="{left:left,top:top}">
+    <div>
+        <svg :height="sections * 20 + 20">
 
-        <circle v-for="n in sections" class="circle" :cy="5 + (n * 20)" ></circle>
-        
-    </svg>
+            <circle v-for="n in sections" class="circle" :cy="(n * 20)" :style="determineFill(n)"></circle>
+            
+        </svg>
+    </div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex';
+
 export default {
     name: 'IndicatorGroup',
     data () {
@@ -17,13 +21,35 @@ export default {
         }
     },
     props: {
+        top: {
+            type: String,
+            required: false,
+            default: '300px'
+        },
+        left: {
+            type: String,
+            required: false,
+            default: '300px'
+        },
         sections: {
             type: Number,
             required: false,
             default: 5
         }
     },
+    computed: {
+        ...mapGetters({
+            pageSectionIndex: 'pageSectionIndex'
+        })
+    },
     methods: {
+        determineFill (idx) {
+            if ((idx - 1) === this.pageSectionIndex) {
+                return {fill:"white"};
+            } else {
+                return {};
+            }
+        },
         getTranslation (name) {
             if (name.indexOf('.') != -1) {
                 // Process object tree
@@ -49,14 +75,11 @@ export default {
 .indicatorGroup
     display: flex
     flex-direction: column
-
+    align-items: center
     position: fixed
-    top: 300px   // DEBUG
-    left: 600px  // DEBUG
 
     svg
         width: 20px
-        height: 240px
 
         .circle
             +homePageTransitionFast
