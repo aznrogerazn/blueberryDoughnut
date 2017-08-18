@@ -71,6 +71,73 @@
     </AboutSection>
     <AboutSection :index="2">
         <!-- // Q&A -->
+        <div slot="left" class="contentWrapper left noOverflow">
+            
+
+            <div class="titularSection">
+                <!-- TODO: Update the image source here -->
+                <img class="iconSmall" src="assets/about-03.svg"/>
+                <h1>學院大哉問</h1>
+                <h2>Q&A</h2>
+            </div>
+
+            <div class="subjectSection">
+                <p>D-School積極的與各院討論合作，讓不同系所的老師共同腦力激盪，一同架構學院課程的主幹。</p>
+                <p>學生在D-School不僅可以學會解決問題的方法，更可利用學校提供的資源與設備，在實作中心把想法實踐！</p>
+            </div>
+            
+            <div class="button">了解更多！</div>
+
+        </div>
+        <div slot="right" class="contentWrapper" :style="{padding:0}">
+            <div class="questionSection">
+                <div class="note">ONE</div>
+                <div class="dialogue">
+                    <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
+                    <div class="dialogueInner">
+                        <h2>咦~台大創新設計學院是什麼 地方啊?平常都在幹嘛呢~?</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="questionSection R">
+                <div class="note">TWO</div>
+                <div class="dialogue">
+                    <img class="bubble" src="assets/about_sectionQa_dialogBlueR.svg"/>
+                    <div class="dialogueInner">
+                        <h2>哇~創新設計學院好有趣喔~ 我可以報考嗎?</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="questionSection">
+                <div class="note">THREE</div>
+                <div class="dialogue">
+                    <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
+                    <div class="dialogueInner">
+                        <h2>為什麼台大會建立創新設計學 院呢?學院是怎麼運作的呢?</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="questionSection R">
+                <div class="note">FOUR</div>
+                <div class="dialogue">
+                    <img class="bubble" src="assets/about_sectionQa_dialogBlueR.svg"/>
+                    <div class="dialogueInner">
+                        <h2>那麼~我要如何參與學院大小事呢?</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="questionSection">
+                <div class="note">FIVE</div>
+                <div class="dialogue">
+                    <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
+                    <div class="dialogueInner">
+                        <h2>我需要具備什麼樣的能力才能參與嗎?</h2>
+                    </div>
+                </div>
+            </div>
+                
+            
+        </div>
     </AboutSection>
     <AboutSection :index="3" :flipLeft="true" :flipRight="true">
         <!-- Chronology -->
@@ -374,6 +441,37 @@ export default {
 
 
 // Exclusive ones
+
+.questionSection
+    position: relative
+    width: calc(62.5vw - 48px)
+    .dialogue
+        position: relative
+        display: inline-block
+        .bubble
+            height: calc(18vh - 20px)
+        .dialogueInner
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            +flexCentre
+            display: flex
+        h2
+            position: absolute
+            width: 70%
+    .note
+        position: absolute
+        top: -36px
+        color: white
+        font-size: 48px
+
+.questionSection.R
+    text-align: right
+    .note
+        right: 0
+    
 
 .bigD
     max-width: 40vw
