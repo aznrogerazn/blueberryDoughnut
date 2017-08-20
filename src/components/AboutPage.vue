@@ -8,7 +8,7 @@
                 <!-- TODO: Update the image source here -->
                 <img class="iconSmall" src="assets/index__pageLogo.svg"/>
                 <h1>關於學院</h1>
-                <h2>ABOUT</h2>
+                <h4>ABOUT</h4>
             </div>
 
             <div class="subjectSection">
@@ -33,12 +33,12 @@
                 <!-- TODO: Update the image source here -->
                 <img class="iconSmall" src="assets/about_sectionMedias_titleIcon.svg"/>
                 <h1>學院影音</h1>
-                <h2>MEDIA</h2>
+                <h4>MEDIA</h4>
             </div>
 
             <div class="subjectSection">
                 <p>在創新創業風氣興盛後，臺大覺察學校創新教育的不足，遂於2014年成立創新設計學院，並於2015年秋季正式授課。</p>
-                <p>為全台大共有的學院—D-School Structure 改設計。使創新概念最終成為現實可行的方案，確實實現。</p>
+                <p>為全台大共有的學院—D-School。使創新概念最終成為現實可行的方案，確實實現。</p>
             </div>
             
             
@@ -60,10 +60,12 @@
                     <div class="colContentWrapper padded">
                         <div class="titularSectionSmall">
                             <h2>其他的介紹在這</h2>
-                            <h3>MEDIA</h3>
+                            <h3>Structure</h3>
                         </div>
-                        <p>為全台大共有的學院—D-School Structure 改設計。使創新概念最終成為現實可行的方案,確實實 現。為全台大共有的學院—D-School Structure 改設計。使創新概念最終成為現實可行的方案,確實實 現。</p>
-                        <p>為全台大共有的學院—D-School Structure 改設計。使創新概念最終成為現實可行的方案,確實實 現。為全台大共有的學院—D-School Structure 改設計。使創新概念最終成為現實可行的方案,確實實 現。</p>
+                        <p>創新設計學院為台大的一級性功能單位*，也是臺灣第一個具有實體空間的虛擬學院，由校長任命學術副校長為執行長，統籌各院的需求成立跨領域的教學與研究的環境，在執行長之上有由台大的11個學院的院長組成的諮詢委員會，也任命副執行長(現為工學院院長、管理學院院長、社科學院院長)協助管理與規劃，在執行面有負責整體行政事務的行政組，負責課程規劃與執行的教學組，以及負責人文社會議題的人社組。
+</p>
+                        <p>為免於創意流於空想，將想像落實於生活，學院內部建置實作中心，提供應有的資源與設備；開設工作坊課程，協助學生執行創新構想時所需的技術技能。透過多元的製造設備能迅速打造設計的原型、反覆測試並修改設計。使創新概念最終成為現實可行的方案，確實實現。
+</p>
                     </div>
                 </div>
             
@@ -151,7 +153,7 @@
                 <!-- TODO: Update the image source here -->
                 <img class="iconSmall" src="assets/about_sectionChronology_titleIcon.svg"/>
                 <h1>學院年表</h1>
-                <h2>Chronology</h2>
+                <h4>Chronology</h4>
             </div>
 
             <div class="subjectSection">
@@ -172,7 +174,7 @@
                 <!-- TODO: Update the image source here -->
                 <img class="iconSmall" src="assets/about_sectionMembers_titleIcon.svg"/>
                 <h1>成員介紹</h1>
-                <h2>Members</h2>
+                <h4>Members</h4>
             </div>
 
             <div class="subjectSection">
@@ -313,8 +315,8 @@ export default {
 <style scoped lang="sass">
 @import '../shared'
 
-=scaleHeaderType ($scale: 1)
-    font-size: $scale * 16px
+// =scaleHeaderType ($scale: 1)
+//     font-size: $scale * 16px
 
 .contentWrapper
     position: relative
@@ -322,14 +324,15 @@ export default {
 
     h1, h2, h3, h4, h5
         color: $theme1
-    h1
-        +scaleHeaderType (3)
+    // h1
+    //     +scaleHeaderType (3)
     
     .titleIconBig
         position: fixed
         bottom: -8vw
         left: -5vw
         max-width: 48vw
+        pointer-events: none
     .titleIconMedium
         position: fixed
         bottom: -8vw
@@ -348,7 +351,9 @@ export default {
         max-width: 240px
 
         .iconSmall
-            width: 40px
+            width: 60px
+            margin-bottom: 15px
+            margin-top: -15px
 
     .titularSection::after
         content: ' '
@@ -380,8 +385,8 @@ export default {
 
     h1, h2, h3, h4, h5
         color: white
-    h1
-        +scaleHeaderType (3)
+    // h1
+    //     +scaleHeaderType (3)
     
     .titularSection::after
         border-bottom: 6px solid white
@@ -426,7 +431,7 @@ export default {
 .titularSectionSmall
     margin: 4px 0 30px 0
     padding: 10px 0
-    max-width: 240px
+    // max-width: 240px
 
     h1, h2, h3, h4, h5
         color: $theme1
@@ -489,7 +494,7 @@ export default {
 
 // Graphics
 .bigD
-    max-width: 40vw
+    max-height: 80vh
 
 .spaceMap
     position: absolute

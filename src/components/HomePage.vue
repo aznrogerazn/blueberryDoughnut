@@ -33,11 +33,11 @@
             <div :class="giantQuoteClass">
                 <img :style="{width:'60px'}" src="assets/index__iconQuoteStart.svg"/>
                 <div class="text">
-                    <span class="header">全台灣第一個虛擬學院</span></br>
-                    <span class="header">創造跨領域教學環境</span>
+                    <h2 class="header">全台灣第一個虛擬學院</br>
+                    創造跨領域教學環境</h2>
                     <div :style="{margin:'15px 0 15px 0',width:'90px',borderBottom:'4px solid #FF5559'}"></div>
-                    <span>在創新創業風氣興盛後，臺大覺察學校創新教育的不足，</span><br/>
-                    <span>遂於2014年成立創新設計學院，並於2015年秋季正式授課。</span>
+                    <h5>在創新創業風氣興盛後，臺大覺察學校創新教育的不足，<br/>
+                            遂於2014年成立創新設計學院，並於2015年秋季正式授課。</h5>
                 </div>
                 <img :style="{width:'60px'}" src="assets/index__iconQouteEnd.svg"/>
             </div>
@@ -96,33 +96,27 @@
                     <div class="contentLimiter">
                         <div class="upper">
                             <img width="90" src="assets/index__iconFeature1.svg"/>
-                            <div class="header">D-Act</div>
-                            <div class="sub">Sky is the limit to what the D-Act can offer.</div>
-                            <div class="text">以不同的形式，不同的議題，創造更多生活化的交流，帶動人潮與帶動人潮與溫度的匯聚，沖刷認知的堡壘。並在向前衝刺後留下寶貴的經驗。</div>
+                            <h2 class="header">D-Act</h2>
+                            <h3 class="sub">Sky is the limit to what the D-Act can offer.</h3>
+                            <p class="text">以不同的形式，不同的議題，創造更多生活化的交流，帶動人潮與帶動人潮與溫度的匯聚，沖刷認知的堡壘。並在向前衝刺後留下寶貴的經驗。</p>
                         </div>
                         <div class="button">學院簡介</div>
                     </div>
-                    
-                </div>
-                <div class="introWrapper">
                     <div class="contentLimiter">
                         <div class="upper">
                             <img width="90" src="assets/index__iconFeature2.svg"/>
-                            <div class="header">D-Course</div>
-                            <div class="sub">We have no answer. Find your own one.</div>
-                            <div class="text">洞悉真正的問題洞悉真正的問題，才能真的一勞永逸。而這份才能誰也不能給你，請自己來培養吧！</div>
+                            <h2 class="header">D-Course</h2>
+                            <h3 class="sub">We have no answer. Find your own one.</h3>
+                            <p class="text">洞悉真正的問題洞悉真正的問題，才能真的一勞永逸。而這份才能誰也不能給你，請自己來培養吧！</p>
                         </div>
                         <div class="button">學院課程</div>
                     </div>
-                    
-                </div>
-                <div class="introWrapper">
                     <div class="contentLimiter">
                         <div class="upper">
                             <img width="90" src="assets/index__iconFeature3.svg"/>
-                            <div class="header">MakerSpace</div>
-                            <div class="sub">"Never Stop Trying"</div>
-                            <div class="text">親自動手實作，驗證設計，大師級的實作技術學習，以手作激發創意、從技藝汲取創新。</div>
+                            <h2 class="header">MakerSpace</h2>
+                            <h3 class="sub">"Never Stop Trying"</h3>
+                            <p class="text">親自動手實作，驗證設計，大師級的實作技術學習，以手作激發創意、從技藝汲取創新。</p>
                         </div>
                         <div class="button">實作中心</div>
                     </div>
@@ -142,7 +136,7 @@
                             </div>
                             <div class="text">
                                 <div class="time">2017-07-15</div>
-                                <div class="header">用一週的時間刨開心中對木工藝的愛</div>
+                                <h2 class="header">用一週的時間刨開心中對木工藝的愛</h2>
                                 <div class="sub"></div>
                                 <p class="intro">「動手做」，在台灣教育裡的缺席造成許多創新創意的空洞化，有鑑於此，帶領台大學生投入木工藝的領域，是D-School開課以來努力的方向。這一次非常感謝北科大W.School全心、全力的投入！由陳殿禮老師所帶領的團隊，從最初的課程設計，到全程課程的陪同與協助，到最後完美的成果發表。不僅提供完整的機械設備和環境，創造48小時的深刻體驗課程。</p>
                                 <div class="actions">
@@ -160,7 +154,7 @@
                                 </div>
                             </div>
                             <div class="text">
-                                <div class="header">茶香之中人情更濃</div>
+                                <h2 class="header">茶香之中人情更濃</h2>
                                 <div class="sub">用樂音傳唱世代的記憶<span class="time">2017-05-28</span></div>
                                 <p class="intro">舞臺上 蔡佳芬老師悠悠長笛聲與吉他樂音中能夠聽見「殺青」時機械運作的聲響。彷彿坪林的茶農日常，透過聲音已描繪成形。</p>
                             </div>
@@ -172,7 +166,7 @@
                                 </div>
                             </div>
                             <div class="text">
-                                <div class="header">茶香之中人情更濃</div>
+                                <h2 class="header">茶香之中人情更濃</h2>
                                 <div class="sub">用樂音傳唱世代的記憶<span class="time">2017-05-28</span></div>
                                 <p class="intro">舞臺上 蔡佳芬老師悠悠長笛聲與吉他樂音中能夠聽見「殺青」時機械運作的聲響。彷彿坪林的茶農日常，透過聲音已描繪成形。</p>
                             </div>
@@ -184,8 +178,8 @@
                 </div>
 
                 <div class="onCorners topLeft">
-                    <div class="header1">焦點碰撞</div>
-                    <div class="header2">INSPIRATION</div>
+                    <h4 class="header1">焦點碰撞</h4>
+                    <h1 class="header2">INSPIRATION</h1>
                 </div>
 
             </div>
@@ -200,15 +194,15 @@
                         </div>
                         <div class="contactWrapper">
                             <div class="contactItem">
-                                <div class="contactHeader">地址 Address</div>
+                                <h5 class="contactHeader">地址 Address</h5>
                                 <div class="contactContent">10087 台北市中正區思源街18號卓越研究大樓四樓</div>
                             </div>
                             <div class="contactItem">
-                                <div class="contactHeader">電話 Tel</div>
+                                <h5 class="contactHeader">電話 Tel</h5>
                                 <div class="contactContent">+886-2-3366-1869</div>
                             </div>
                             <div class="contactItem">
-                                <div class="contactHeader">信箱 Email</div>
+                                <h5 class="contactHeader">信箱 Email</h5>
                                 <div class="contactContent">ntudschool@ntu.edu.tw</div>
                             </div>
                         </div>
@@ -642,6 +636,34 @@ export default {
 
 $smallCircleSize: 54px
 
+/* common styling */
+
+.button
+    display: inline-block
+    font-weight: 600
+    color: $theme1
+    border: 3px solid $theme1
+    padding: 8px 16px
+    letter-spacing: 1px
+    transition: 0.5s
+    margin-right: 5px
+    margin-top: 10px
+
+    // vertical-align: bottom
+
+            // .button
+            //     display: inline-block
+            //     padding: 4px 18px
+            //     border: 2px solid $gradient4
+            //     color: $gradient4
+            //     font-weight: 600
+            //     margin: 14px
+
+.button:hover
+    background: $theme1
+    color: $bgColour
+    cursor: pointer
+
 /* Template Classes */
 .hideNoPointer
     +hideNoPointer
@@ -744,7 +766,7 @@ $smallCircleSize: 54px
         justify-content: space-between
 
         .smallCircle
-            +homePageTransitionSlow
+            +homePageTransitionFast
             
             
             width: $smallCircleSize
@@ -754,10 +776,10 @@ $smallCircleSize: 54px
             +hideNoPointer
         
         .smallCircle.left.three
-            transform: translate3d(-40px, -20px, 0)
+            transform: translate3d(-60px, 0px, 0)
 
         .smallCircle.right.three
-            transform: translate3d(40px, -20px, 0)
+            transform: translate3d(60px, 0px, 0)
 
 .centredInfo
     display: flex
@@ -769,49 +791,48 @@ $smallCircleSize: 54px
     +homePageTransitionSlow
 
     .introWrapper
-        height: calc(80vw / 3)
+        // height: calc(80vw / 3)
         padding: 20px
-        flex-grow: 1
+        box-sizing: border-box
+        // flex-grow: 1
+        display: flex
         text-align: center
-        
+        max-width: 1200px
+        margin-left: auto
+        margin-right: auto
 
         .contentLimiter
             display: inline-block
-            max-width: 430px
+            // max-width: 430px
             text-align: left
+            // flex: 1
+            width: calc(100% / 3)
+            flex-shrink: 0
+            padding: 10px
+            justify-content: center
 
             .upper
-                min-height: 440px
+                min-height: 360px
 
     .header
         color: $theme1
-        font-size: 60px
+        font-size: 46px
         font-weight: 800
+        white-space: nowrap
     .sub
         color: $gradient0
-        font-size: 24px
+        font-size: 20px
         font-weight: 600
         padding-bottom: 18px
     .text
         color: $gradient0
-        font-size: 18px
+        font-size: 16px
         padding-bottom: 20px
 
-    .button
-        display: inline-block
-        font-weight: 600
-        color: $theme1
-        border: 3px solid $theme1
-        padding: 8px 20px
-        // vertical-align: bottom
 
-    .button:hover
-        background: $theme1
-        color: $bgColour
-        cursor: pointer
 
 .newsInfo
-    +homePageTransitionSlow
+    +homePageTransitionLinear
     color: $gradient0
 
     .header1
@@ -860,8 +881,8 @@ $smallCircleSize: 54px
             .thumbnail
                 flex-basis: 0
                 position: relative
-                width: calc((70vw - 84px) / 3)
-                
+                // width: calc((70vw - 84px) / 3)
+                width: 95%
                 .imgWrapper
                     overflow: hidden
                     width: 100%
@@ -876,7 +897,7 @@ $smallCircleSize: 54px
                 transform: translate3d(0, -32px ,0)
                 box-shadow: 0 -2px 8px 0.6px rgba(20,20,20,0.2)
                 margin: 0 8px 0 8px
-                max-height: calc(((70vw / 3))
+                // max-height: calc(((70vw / 3))
                 flex-grow: 1
                 flex-basis: 0
 
@@ -902,15 +923,15 @@ $smallCircleSize: 54px
                     font-size: 15px
                     line-height: 1.8em
 
-                .button
-                    display: inline-block
-                    border: 1px solid $theme1
-                    color: $theme1
-                    font-size: 15px
-                    font-weight: 500
-                    padding: 3px 15px
-                    margin: 2px 4px
-                    +homePageTransitionFast
+                // .button
+                //     display: inline-block
+                //     border: 1px solid $theme1
+                //     color: $theme1
+                //     font-size: 15px
+                //     font-weight: 500
+                //     padding: 3px 15px
+                //     margin: 2px 4px
+                //     +homePageTransitionFast
 
                 .button:hover
                     background: $theme1
@@ -921,6 +942,7 @@ $smallCircleSize: 54px
             flex-grow: 3
             flex-shrink: 3
             height: calc(100% - 64px)
+            // max-height: calc(100% - 64px)
             display: flex
             background: $gradient0
 
@@ -998,13 +1020,7 @@ $smallCircleSize: 54px
                 max-width: 500px
             .buttonSection
                 padding: 10px 0 20px 0
-            .button
-                display: inline-block
-                padding: 4px 18px
-                border: 2px solid $gradient4
-                color: $gradient4
-                font-weight: 600
-                margin: 14px
+
 
             .contactWrapper
                 font-weight: 600
@@ -1027,8 +1043,6 @@ $smallCircleSize: 54px
                             height: 10px
 
 
-                    .contactContent
-                        font-size: 1.2em    
         .right
             
             padding-left: 20px
@@ -1155,11 +1169,11 @@ $indicatorCircleMargin: 20px
         .motionCircleMain.three
             cx: 50vw
             cy: 50vh
-            r: 42vw
+            r: 44vw
             stroke: $theme1 !important
             stroke-dasharray: 0
             fill: transparent
-            stroke-width: 5px !important
+            stroke-width: 8px !important
         .motionCircleMain.four
             cx: 50vw
             cy: 50vh
@@ -1255,9 +1269,12 @@ $indicatorCircleMargin: 20px
     .text
         display: inline-block
         vertical-align: top
-        font-size: 24px
+        font-size: 22px
+        font-weight: 500
         .header
-            font-size: 72px
+            font-size: 54px
+            font-weight: 700
+            margin-bottom: 20px
 
 
 .langSelect

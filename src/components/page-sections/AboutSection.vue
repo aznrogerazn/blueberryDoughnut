@@ -119,12 +119,13 @@ export default {
 
 .aboutSection
     display: flex
-    +homePageTransitionFast
+    +homePageTransitionLinear
 
     .leftWrapper
         +fullHeightPadded
         +flexCentre
         flex: 3
+        max-width: 500px
         background: $gradient0
         position: relative
     

@@ -21,8 +21,10 @@
                 <router-link to="/about">
                     <div class="item">_{{getTranslation('MENU.INTRO')}}</div>
                 </router-link>
-                <div class="item">_{{getTranslation('MENU.CENTRE')}}</div>
-                <div class="item">_{{getTranslation('MENU.COURSES')}}</div>
+                    <div class="item">_{{getTranslation('MENU.CENTRE')}}</div>
+                <a href="http://dschool.ntu.edu.tw/2017/courses/#/">
+                    <div class="item">_{{getTranslation('MENU.COURSES')}}</div>
+                </a>
                 <div class="item">_{{getTranslation('MENU.SERVICES')}}</div>
                 <div class="item">_{{getTranslation('MENU.NEWS')}}</div>
                 <div class="item">_{{getTranslation('MENU.QA')}}</div>
