@@ -1,4 +1,4 @@
-<template>
+<template lang="">
   <div class="">
     <AboutSection :themeRight="true" :index="0">
         <!-- About -->
@@ -90,48 +90,51 @@
 
         </div>
         <div slot="right" class="contentWrapper" :style="{padding:0}">
-            <div class="questionSection">
-                <div class="note">ONE</div>
-                <div class="dialogue">
-                    <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
-                    <div class="dialogueInner">
-                        <h2>咦~台大創新設計學院是什麼 地方啊?平常都在幹嘛呢~?</h2>
+
+            <div>
+                <div class="questionSection">
+                    <div class="note">ONE</div>
+                    <div class="dialogue">
+                        <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
+                        <div class="dialogueInner">
+                            <h2>咦~台大創新設計學院是什麼 地方啊?平常都在幹嘛呢~?</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="questionSection R">
-                <div class="note">TWO</div>
-                <div class="dialogue">
-                    <img class="bubble" src="assets/about_sectionQa_dialogBlueR.svg"/>
-                    <div class="dialogueInner">
-                        <h2>哇~創新設計學院好有趣喔~ 我可以報考嗎?</h2>
+                <div class="questionSection R">
+                    <div class="note">TWO</div>
+                    <div class="dialogue">
+                        <img class="bubble" src="assets/about_sectionQa_dialogBlueR.svg"/>
+                        <div class="dialogueInner">
+                            <h2>哇~創新設計學院好有趣喔~ 我可以報考嗎?</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="questionSection">
-                <div class="note">THREE</div>
-                <div class="dialogue">
-                    <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
-                    <div class="dialogueInner">
-                        <h2>為什麼台大會建立創新設計學 院呢?學院是怎麼運作的呢?</h2>
+                <div class="questionSection">
+                    <div class="note">THREE</div>
+                    <div class="dialogue">
+                        <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
+                        <div class="dialogueInner">
+                            <h2>為什麼台大會建立創新設計學 院呢?學院是怎麼運作的呢?</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="questionSection R">
-                <div class="note">FOUR</div>
-                <div class="dialogue">
-                    <img class="bubble" src="assets/about_sectionQa_dialogBlueR.svg"/>
-                    <div class="dialogueInner">
-                        <h2>那麼~我要如何參與學院大小事呢?</h2>
+                <div class="questionSection R">
+                    <div class="note">FOUR</div>
+                    <div class="dialogue">
+                        <img class="bubble" src="assets/about_sectionQa_dialogBlueR.svg"/>
+                        <div class="dialogueInner">
+                            <h2>那麼~我要如何參與學院大小事呢?</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="questionSection">
-                <div class="note">FIVE</div>
-                <div class="dialogue">
-                    <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
-                    <div class="dialogueInner">
-                        <h2>我需要具備什麼樣的能力才能參與嗎?</h2>
+                <div class="questionSection">
+                    <div class="note">FIVE</div>
+                    <div class="dialogue">
+                        <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
+                        <div class="dialogueInner">
+                            <h2>我需要具備什麼樣的能力才能參與嗎?</h2>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -248,6 +251,7 @@ export default {
 
         }
     },
+
     props: {
         contents: {
             required: false,
@@ -273,6 +277,10 @@ export default {
             setMenuStyle: 'setMenuStyle',
             changePageLogoState: 'changePageLogoState'
         })
+    },
+    mounted () {
+        window.scrollTop = 0;
+        document.body.scrollTop = 0;
     },
     computed: {
         indicatorLeft () {
@@ -442,6 +450,7 @@ export default {
 
 // Exclusive ones
 
+// Q&A
 .questionSection
     position: relative
     width: calc(62.5vw - 48px)
@@ -472,7 +481,10 @@ export default {
     .note
         right: 0
     
+.qaEscapeLeft
+    transform: translate3d(-34vw, 0, 0)
 
+// Graphics
 .bigD
     max-width: 40vw
 

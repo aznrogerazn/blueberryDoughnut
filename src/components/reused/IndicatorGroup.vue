@@ -3,7 +3,7 @@
     <div>
         <svg :height="sections * 20 + 20">
 
-            <circle v-for="n in sections" class="circle" :cy="(n * 20)" :style="determineFill(n)"></circle>
+            <circle @click="gotoSection(n)" v-for="n in sections" class="circle" :cy="(n * 20)" :style="determineFill(n)"></circle>
             
         </svg>
     </div>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters, mapActions} from 'vuex';
 
 export default {
     name: 'IndicatorGroup',
@@ -50,6 +50,9 @@ export default {
                 return {};
             }
         },
+        gotoSection (idx) {
+            this.setPageSectionIndex(idx - 1)
+        },
         getTranslation (name) {
             if (name.indexOf('.') != -1) {
                 // Process object tree
@@ -62,7 +65,10 @@ export default {
                 return ref;
             }
             return LANG[name];
-        }
+        },
+        ...mapActions({
+            setPageSectionIndex: 'setPageSectionIndex'
+        })
     }
   
 }
@@ -87,7 +93,7 @@ export default {
             cx: 5px
             stroke: $gradient0
             stroke-width: 1px
-            fill: none
+            fill: rgba(0,0,0,0)
         
         .circle.hide
             +hideNoPointer
@@ -98,6 +104,9 @@ export default {
         .circle.default
             fill: $theme1
             stroke: $theme1
+
+        .circle:hover
+            cursor: pointer
     
 
 </style>

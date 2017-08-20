@@ -56,6 +56,14 @@ module.exports = {
       {
         test: /\.s[a|c]ss$/,
         loader: 'style!css!sass'
+      },
+      {
+        test: /\.jade$/,
+        loader: "jade"
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug'
       }
     ]
   }

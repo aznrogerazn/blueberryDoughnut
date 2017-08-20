@@ -112,6 +112,9 @@ export default {
             }
             return LANG[name];
         }
+    },
+    mounted () {
+        this.$forceUpdate()
     }
   
 }

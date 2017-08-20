@@ -27,6 +27,11 @@ export default {
     MenuButton,
     PageLogo
   },
+  data () {
+    return {
+      scrolling: false
+    }
+  },
   store,          // Store declared for all children
                   // Refer to this with this.$store in child
                   // components.
@@ -47,6 +52,19 @@ export default {
       this.handleRouteChange(newValue);
 
       
+    },
+    pageSectionIndex (newVal) {
+      if (!this.allowScrolling) return;
+      // Auto-scroll
+      let pageHeight = (window.innerHeight + 0);
+      this.disableScrolling();
+      let scrollVal = pageHeight * this.pageSectionIndex;
+      this.scrollToY(scrollVal, () => {
+        setTimeout(() => {
+            this.enableScrolling();
+            console.log(this.pageSectionIndex);
+        }, 500);
+      });
     }
   },
   created () {
@@ -73,6 +91,17 @@ export default {
       disableScrolling: 'disableScrolling'
     }),
 
+    scrollToY (offset, cb) {
+
+      $('body').velocity('scroll', {
+        duration: 800,
+        easing: 'easeInOutCirc',
+        offset: offset + 'px',
+        complete: () => {
+            if (cb) cb();
+        }});
+
+    },
 
     handleMouseWheel (eV) {
       eV.preventDefault();
@@ -100,16 +129,12 @@ export default {
           }
           this.disableScrolling();
           let scrollVal = pageHeight * this.pageSectionIndex;
-          $('body').velocity('scroll', {
-              duration: 800,
-              easing: 'easeInOutCirc',
-              offset: scrollVal + 'px',
-              complete: () => {
-                  setTimeout(() => {
-                      this.enableScrolling();
-                      console.log(this.pageSectionIndex);
-                  }, 500);
-              }});
+          this.scrollToY(scrollVal, () => {
+            setTimeout(() => {
+                this.enableScrolling();
+                console.log(this.pageSectionIndex);
+            }, 500);
+          });
       } else {
           console.log('向上捲動');
           // 向上捲動
@@ -120,16 +145,12 @@ export default {
           }
           this.disableScrolling();
           let scrollVal = pageHeight * this.pageSectionIndex;
-          $('body').velocity('scroll', {
-              duration: 800,
-              easing: 'easeInOutCirc',
-              offset: scrollVal + 'px',
-              complete: () => {
-                  setTimeout(() => {
-                      this.enableScrolling();
-                      console.log(this.pageSectionIndex);
-                  }, 500);
-              }});
+          this.scrollToY(scrollVal, () => {
+            setTimeout(() => {
+                this.enableScrolling();
+                console.log(this.pageSectionIndex);
+            }, 500);
+          });
       }
 
       // Callback should be implemented on individual component with following expression:

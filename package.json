@@ -11,6 +11,11 @@
   },
   "dependencies": {
     "backendless": "^4.0.7",
+    "jade": "^1.11.0",
+    "jade-loader": "^0.8.0",
+    "pug": "^2.0.0-rc.3",
+    "pug-filters": "^2.1.4",
+    "pug-loader": "^2.3.0",
     "vue": "^2.2.6",
     "vue-computed-promise": "^1.0.1",
     "vue-router": "^2.3.1"
