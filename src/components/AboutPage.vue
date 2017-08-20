@@ -62,16 +62,14 @@
                             <h2>其他的介紹在這</h2>
                             <h3>Structure</h3>
                         </div>
-                        <p>創新設計學院為台大的一級性功能單位*，也是臺灣第一個具有實體空間的虛擬學院，由校長任命學術副校長為執行長，統籌各院的需求成立跨領域的教學與研究的環境，在執行長之上有由台大的11個學院的院長組成的諮詢委員會，也任命副執行長(現為工學院院長、管理學院院長、社科學院院長)協助管理與規劃，在執行面有負責整體行政事務的行政組，負責課程規劃與執行的教學組，以及負責人文社會議題的人社組。
-</p>
-                        <p>為免於創意流於空想，將想像落實於生活，學院內部建置實作中心，提供應有的資源與設備；開設工作坊課程，協助學生執行創新構想時所需的技術技能。透過多元的製造設備能迅速打造設計的原型、反覆測試並修改設計。使創新概念最終成為現實可行的方案，確實實現。
-</p>
+                        <p>創新設計學院為台大的一級性功能單位*，也是臺灣第一個具有實體空間的虛擬學院，由校長任命學術副校長為執行長，統籌各院的需求成立跨領域的教學與研究的環境，在執行長之上有由台大的11個學院的院長組成的諮詢委員會，也任命副執行長(現為工學院院長、管理學院院長、社科學院院長)協助管理與規劃，在執行面有負責整體行政事務的行政組，負責課程規劃與執行的教學組，以及負責人文社會議題的人社組。</p>
+                        <p>為免於創意流於空想，將想像落實於生活，學院內部建置實作中心，提供應有的資源與設備；開設工作坊課程，協助學生執行創新構想時所需的技術技能。透過多元的製造設備能迅速打造設計的原型、反覆測試並修改設計。使創新概念最終成為現實可行的方案，確實實現。</p>
                     </div>
                 </div>
             
         </div>
     </AboutSection>
-    <AboutSection :index="2">
+    <AboutSection :index="2" :layer="section2Layer" :totalLayers="1">
         <!-- // Q&A -->
         <div slot="left" class="contentWrapper left noOverflow">
             
@@ -88,7 +86,7 @@
                 <p>學生在D-School不僅可以學會解決問題的方法，更可利用學校提供的資源與設備，在實作中心把想法實踐！</p>
             </div>
             
-            <div class="button">了解更多！</div>
+            <div @click="section2Layer = 1" class="button">了解更多！</div>
 
         </div>
         <div slot="right" class="contentWrapper" :style="{padding:0}">
@@ -101,6 +99,11 @@
                         <div class="dialogueInner">
                             <h2>咦~台大創新設計學院是什麼 地方啊?平常都在幹嘛呢~?</h2>
                         </div>
+                    </div>
+                    <div class="description" :class="{show: (section2Layer == 1)}">
+                        <p>創新設計學院以創造跨領域合作為目標，邀請不同系所、不同專業的師生來到學院。</p>
+                        <p>開設校內學分課程、舉辦工作坊及講座活動等。並設計優質的討論空間及休息室，讓大家在舒適的環境中發揮想像和創意。</p>
+                        <p>同時，學院為了鼓勵同學們將想法落實，提倡動手做的精神，我們也建置了「實作中心」!實作中心內設有雷射切割機、3D印表機、CNC等等機械設備。所以~只要你走近學院，就會發現有人在上課、在為了某個理想激烈討論、在放空思索人生、在把玩機械或是模型、或是在吃東西</p>
                     </div>
                 </div>
                 <div class="questionSection R">
@@ -250,7 +253,7 @@ export default {
     },
     data () {
         return {
-
+            section2Layer: 0
         }
     },
 
@@ -459,6 +462,13 @@ export default {
 #desktop-qa
     // position: absolute
     
+    .description
+        +homePageTransitionFast
+        max-height: 0
+        overflow: hidden
+    .description.show
+        max-height: 240px
+
 .questionSection
     position: relative
     width: calc(62.5vw - 48px)

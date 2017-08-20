@@ -1,13 +1,13 @@
 <template>
-  <div :class="aboutSectionClass">
+  <div class="aboutSection" :class="{blurred: !focused}">
     <!--
       REMINDER: CSS Classes on slots are removed in Vue 2.0
                 Remember to properly use wrapper elements
      -->
-    <div class="leftWrapper" :class="{themed: themeLeft, flipped: flipLeft}">
+    <div class="leftWrapper" :class="{themed: themeLeft, flipped: flipLeft, hideLeft: (layer > 0)}">
         <slot name="left"></slot>
     </div>
-    <div class="rightWrapper" :class="{themed: themeRight, flipped: flipRight}">
+    <div class="rightWrapper" :class="{themed: themeRight, flipped: flipRight, expand: (layer > 0)}">
         <slot name="right"></slot>
     </div>
     <div>
@@ -41,9 +41,6 @@ export default {
             }
         },
 
-        aboutSectionClass () {
-            return this.focused ? 'aboutSection' : 'aboutSection blurred';
-        },
 
         ...mapGetters({
             pageSectionIndex: 'pageSectionIndex'
@@ -54,6 +51,7 @@ export default {
             required: false,
             type: Object
         },
+        // Styling-related
         themeLeft: {
             type: Boolean,
             default: false,
@@ -77,6 +75,17 @@ export default {
         index: {                // Note: this prop will control the 
             type: Number,       //       fade-in/out animation by influencing
             default: null,      //       'focused' in computed.
+            required: false
+        },
+        // Z-dimension
+        layer: {
+            type: Number,
+            default: 0,
+            required: false
+        },
+        totalLayers: {
+            type: Number,
+            default: 1,
             required: false
         }
     },
@@ -128,6 +137,11 @@ export default {
         max-width: 500px
         background: $gradient0
         position: relative
+        +homePageTransitionFast
+
+    .leftWrapper.hideLeft
+        flex: 0
+        max-width: 0
     
     .rightWrapper
         +fullHeightPadded
@@ -135,6 +149,10 @@ export default {
         flex: 5
         background: $theme1
         position: relative
+        +homePageTransitionFast
+
+    .rightWrapper.expand
+        background: $gradient0
 
     .themed
         background: $bgColour !important
