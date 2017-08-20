@@ -82,11 +82,11 @@
 
             <div class="indicator">
                 <svg>
-                    <circle class="circle one" :class="{default: (currentSection === 1)}"></circle>
-                    <circle class="circle two" :class="{hide: (currentSection === 1), focus: (currentSection === 2)}"></circle>
-                    <circle class="circle three" :class="{hide: (currentSection === 1), focus: (currentSection === 3)}"></circle>
-                    <circle class="circle four" :class="{hide: (currentSection === 1), focus: (currentSection === 4)}"></circle>
-                    <circle class="circle five" :class="{hide: (currentSection === 1), focus: (currentSection === 5)}"></circle>
+                    <circle @click="gotoSection(1)" class="circle one" :class="{default: (currentSection === 1)}"></circle>
+                    <circle @click="gotoSection(2)" class="circle two" :class="{hide: (currentSection === 1), focus: (currentSection === 2)}"></circle>
+                    <circle @click="gotoSection(3)" class="circle three" :class="{hide: (currentSection === 1), focus: (currentSection === 3)}"></circle>
+                    <circle @click="gotoSection(4)" class="circle four" :class="{hide: (currentSection === 1), focus: (currentSection === 4)}"></circle>
+                    <circle @click="gotoSection(5)" class="circle five" :class="{hide: (currentSection === 1), focus: (currentSection === 5)}"></circle>
                 </svg>
             </div>
             <!-- Page THREE -->
@@ -272,6 +272,10 @@ export default {
 
     },
     methods: {
+
+        gotoSection (idx) {
+            this.setPageSectionIndex(idx - 1)
+        },
         
         getTranslation (name) {
             if (name.indexOf('.') != -1) {
@@ -369,7 +373,10 @@ export default {
         closeMenuHandler (action) {
             console.log('closeMenuHandler() called: ' + action);
             this.menuOpened = false;
-        }
+        },
+        ...mapActions({
+            setPageSectionIndex: 'setPageSectionIndex'
+        })
     },
     mounted () {
         // Note: scroll/mouseWheel events moved to <App>
@@ -828,6 +835,7 @@ $indicatorCircleMargin: 20px
     position: absolute
     left: $pagePadding
     bottom: 20vh
+    z-index: 9923
 
     svg
         width: $pagePadding
@@ -839,7 +847,7 @@ $indicatorCircleMargin: 20px
             cx: 5px
             stroke: $gradient0
             stroke-width: 1px
-            fill: none
+            fill: rgba(0,0,0,0)
         
         .circle.hide
             +hideNoPointer
@@ -850,6 +858,8 @@ $indicatorCircleMargin: 20px
         .circle.default
             fill: $theme1
             stroke: $theme1
+        .circle:hover
+            cursor: pointer
 
         .one
             cy: $indicatorCircleMargin * 1
