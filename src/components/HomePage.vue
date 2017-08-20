@@ -10,27 +10,27 @@
 
             <div class="motionCircleWrapper">
                 <svg class="motionCircle">
-                    <circle :class="motionCircleMainClass" stroke-dasharray="6,5" :style="{stroke:'#FFF',strokeWidth:'1px'}"  />
-                    <circle :class="motionCircle2Class" stroke-dasharray="6,5" :style="{stroke:'#FFF',strokeWidth:'1px'}"  />
-                    <circle :class="motionCircle3Class" />
-                    <circle :class="motionCircle4Class" />
-                    <circle :class="motionCircle5Class" />
+                    <circle class="motionCircleMain" :class="{one: (currentSection == 1), two: (currentSection == 2), three: (currentSection == 3), four: (currentSection == 4), five: (currentSection == 5)}" stroke-dasharray="6,5" :style="{stroke:'#FFF',strokeWidth:'1px'}"  />
+                    <circle class="motionCircle2" :class="{hide: (currentSection == 1), shown: (currentSection == 2), expand: (currentSection == 3), four: (currentSection == 4), five: (currentSection == 5)}" stroke-dasharray="6,5" :style="{stroke:'#FFF',strokeWidth:'1px'}"  />
+                    <circle class="motionCircle3" :class="{hide: (currentSection == 1), shown: (currentSection == 2), expand: (currentSection == 3), four: (currentSection == 4), five: (currentSection == 5)}" />
+                    <circle class="motionCircle4" :class="{hide: (currentSection == 1), shown: (currentSection == 2), expand: (currentSection == 3), four: (currentSection == 4), five: (currentSection == 5)}" />
+                    
                 </svg>
             </div>
             <div class="onCorners topLeft">
-                <img class="heroTitle" :class="{hide: (currentSection == 1)}" src="assets/index__heroTitle.svg"/>
-                <div :class="titularBannerClass">
+                <img class="heroTitle" :class="{hide: (currentSection != 1)}" src="assets/index__heroTitle.svg"/>
+                <div class="titularBanner" :class="{hide: (currentSection != 1)}">
                     <div class="main">REACTION</div>
                     <div class="secondary">OF CREATIVITY</div>
                 </div>
             </div>
             
-            <div :class="tagline1Class">
+            <div class="onCorners bottomLeft tagline1" :class="{hideNoPointer: (currentSection != 1)}">
                 <span>創意，是永無止境探究世界的真實面貌</span>
                 <div class="decor"></div>
             </div>
             <!-- Page TWO -->
-            <div :class="giantQuoteClass">
+            <div class="onCorners bottomLeft giantQuote" :class="{hideNoPointer: (currentSection != 2)}">
                 <img :style="{width:'60px'}" src="assets/index__iconQuoteStart.svg"/>
                 <div class="text">
                     <h2 class="header">全台灣第一個虛擬學院</br>
@@ -41,56 +41,56 @@
                 </div>
                 <img :style="{width:'60px'}" src="assets/index__iconQouteEnd.svg"/>
             </div>
-            <div :class="langSelectClass">
+            <div class="onCorners bottomLeft langSelect" :class="{hideNoPointer: (currentSection != 1)}">
                 <img class="icon" src="assets/index__heroDoubleCircle.svg"/>
                 <span class="label"><span class="selector" @click="selectEN">EN</span> / <span class="selector" @click="selectZH">中文</span></span>
             </div>
             
             <div class="centred" :style="{pointerEvents:'none'}">
-                <div :class="centreLineWrapperClass">
+                <div class="centreLineWrapper" :class="{hideNoPointer: (currentSection > 2)}">
                     <svg ref="centreLine" class="centreLine">
                         <line stroke-dasharray="6,5" :style="{stroke:'#FFF',strokeWidth:'2px'}" x1="0" y1="0" x2="100%" y2="0" />/>
                     </svg>
                 </div>
                 
-                <img :class="centredCircleClass1" src="assets/index__heroCir1.svg"/>
-                <img :class="centredCircleClass2" src="assets/index__heroCir2.svg"/>
-                <img :class="centredCircleClass3" src="assets/index__heroCir3.svg"/>
-                <img :class="centredCircleClass4" src="assets/index__heroCir4.svg"/>
-                <img :class="centredCircleClass5" src="assets/index__heroCir5.svg"/>
+                <img class="circles" :class="{toLeft: (currentSection != 1)}" src="assets/index__heroCir1.svg"/>
+                <img class="circles" :class="{mergeLeft: (currentSection != 1)}" src="assets/index__heroCir2.svg"/>
+                <img class="circles" :class="{scaleOut: (currentSection != 1)}" src="assets/index__heroCir3.svg"/>
+                <img class="circles" :class="{mergeRight: (currentSection != 1)}" src="assets/index__heroCir4.svg"/>
+                <img class="circles" :class="{toRight: (currentSection != 1)}" src="assets/index__heroCir5.svg"/>
                 
                 <div class="centredCircles">
-                    <svg :class="leftSmallCircleClass">
+                    <svg class="smallCircle left" :class="{hide: (currentSection === 1), three: (currentSection === 3 || currentSection === 4), 'three hide': (currentSection === 5)}">
                         <circle cx="27" cy="27" fill="#FF5559" r="27"></circle>
                     </svg>
-                    <svg :class="rightSmallCircleClass">
+                    <svg class="smallCircle right" :class="{hide: (currentSection === 1), three: (currentSection === 3 || currentSection === 4), 'three hide': (currentSection === 5)}">
                         <circle cx="27" cy="27" fill="#FF5559" r="27"></circle>
                     </svg>
                 </div>
             </div>
-            <div :class="bottomNavMouseClass">
+            <div class="bottomNavMouse" :class="{hide: (currentSection != 1)}">
                 <img class="mouseIcon" src="assets/index__iconMouse.svg"/>
                 <div class="caption">EXPLORE</div>
                 <img class="arrowDown" src="assets/index__iconArrowDown.svg"/>
             </div>
-            <div :class="rightNavMetreClass">
+            <div class="rightNavMetre" :class="{hide: (currentSection != 1)}">
                 <svg>
                     <line v-for="item in rightNavItems" :x1="item.x1" :y1="item.y1" :x2="item.x2" :y2="item.y2" stroke="white"></line>
                     
                 </svg>
             </div>
 
-            <div :class="indicatorClass">
+            <div class="indicator">
                 <svg>
-                    <circle :class="indicatorCircleClass(1)"></circle>
-                    <circle :class="indicatorCircleClass(2)"></circle>
-                    <circle :class="indicatorCircleClass(3)"></circle>
-                    <circle :class="indicatorCircleClass(4)"></circle>
-                    <circle :class="indicatorCircleClass(5)"></circle>
+                    <circle class="circle one" :class="{default: (currentSection === 1)}"></circle>
+                    <circle class="circle two" :class="{hide: (currentSection === 1), focus: (currentSection === 2)}"></circle>
+                    <circle class="circle three" :class="{hide: (currentSection === 1), focus: (currentSection === 3)}"></circle>
+                    <circle class="circle four" :class="{hide: (currentSection === 1), focus: (currentSection === 4)}"></circle>
+                    <circle class="circle five" :class="{hide: (currentSection === 1), focus: (currentSection === 5)}"></circle>
                 </svg>
             </div>
             <!-- Page THREE -->
-            <div :class="centredInfoClass">
+            <div class="centredInfo" :class="{hideNoPointer: (currentSection != 3)}">
 
                 <div class="introWrapper">
                     <div class="contentLimiter">
@@ -124,7 +124,7 @@
                 </div>
             </div>
             <!-- Page FOUR -->
-            <div :class="newsInfoClass">
+            <div class="newsInfo" :class="{hideNoPointer: (currentSection != 4)}">
                 
                 <div class="onCorners topRight infoWrapper">
                     <div class="topRow">
@@ -184,7 +184,7 @@
 
             </div>
             <!-- Page FIVE -->
-            <div :class="aboutSectionClass">
+            <div class="aboutSection" :class="{hideNoPointer: (currentSection != 5)}">
                 <div class="aboutWrapper">
                     <div class="left">
                         <img class="logo" src="assets/index__heroTitle.svg"/>
@@ -270,196 +270,6 @@ export default {
             pageSectionIndex: 'pageSectionIndex'
         }),
 
-        heroTitleClass () {
-            return (this.currentSection === 1) ? 'heroTitle' : 'heroTitle hide';
-        },
-        menuButtonClass () {
-            return (this.currentSection === 1) ? 'onCorners topRight menuButton hideNoPointer' : 'onCorners topRight menuButton';
-        },
-        menuDisplayClass () {
-            return (this.menuOpened) ? 'persistent menuDisplay' : 'persistent menuDisplay hideNoPointer'
-        },
-        langSelectClass () {
-            return (this.currentSection === 1) ? 'onCorners bottomLeft langSelect' : 'onCorners bottomLeft langSelect hideNoPointer';
-        },
-        tagline1Class () {
-            return (this.currentSection === 1) ? 'onCorners bottomLeft tagline1' : 'onCorners bottomLeft tagline1 hideNoPointer';
-        },
-        indicatorClass () {
-            return (this.currentSection === 1) ? 'indicator' : 'indicator';
-        },
-        centredInfoClass () {
-            return (this.currentSection === 3) ? 'centredInfo': 'centredInfo hideNoPointer';
-        },
-        newsInfoClass () {
-            return (this.currentSection === 4) ? 'newsInfo': 'newsInfo hideNoPointer';
-        },
-        aboutSectionClass () {
-            return (this.currentSection === 5) ? 'aboutSection': 'aboutSection hideNoPointer';
-        },
-        titularBannerClass () {
-            return (this.currentSection === 1) ? 'titularBanner' : 'titularBanner hide';
-        },
-        giantQuoteClass () {
-            return (this.currentSection === 2) ? 'onCorners bottomLeft giantQuote' : 'onCorners bottomLeft giantQuote hideNoPointer';
-        },
-        centreLineWrapperClass () {
-            return (this.currentSection === 1 || this.currentSection === 2) ? 'centreLineWrapper' : 'centreLineWrapper hideNoPointer';
-        },
-        bottomNavMouseClass () {
-            return (this.currentSection === 1) ? 'bottomNavMouse' : 'bottomNavMouse hide';
-        },
-        rightNavMetreClass () {
-            return (this.currentSection === 1) ? 'rightNavMetre' : 'rightNavMetre hide';
-        },
-        centredCircleClass1 () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'circles'
-                case 2:
-                    return 'circles toLeft'
-                default:
-                    return 'circles toLeft'
-            }
-        },
-        centredCircleClass2 () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'circles'
-                case 2:
-                    return 'circles mergeLeft'
-                default:
-                    return 'circles mergeLeft'
-            }
-        },
-        centredCircleClass3 () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'circles'
-                case 2:
-                    return 'circles scaleOut'
-                default:
-                    return 'circles scaleOut'
-            }
-        },
-        centredCircleClass4 () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'circles'
-                case 2:
-                    return 'circles mergeRight'
-                default:
-                    return 'circles mergeRight'
-            }
-        },
-        centredCircleClass5 () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'circles'
-                case 2:
-                    return 'circles toRight'
-                default:
-                    return 'circles toRight'
-            }
-        },
-        motionCircleMainClass () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'motionCircleMain one'
-                case 2:
-                    return 'motionCircleMain two'
-                case 3:
-                    return 'motionCircleMain three'
-                case 4:
-                    return 'motionCircleMain four'
-                case 5:
-                    return 'motionCircleMain five'
-            }
-        },
-        motionCircle2Class () {     // Also the dotted circle
-            switch (this.currentSection) {
-                case 1:
-                    return 'motionCircle2 hide'
-                case 2:
-                    return 'motionCircle2 shown'
-                case 3:
-                    return 'motionCircle2 expand'
-                case 4:
-                    return 'motionCircle2 four'
-                case 5: 
-                    return 'motionCircle2 five'
-            }
-        },
-        motionCircle3Class () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'motionCircle3 hide'
-                case 2:
-                    return 'motionCircle3 shown'
-                case 3:
-                    return 'motionCircle3 expand'
-                case 4:
-                    return 'motionCircle3 four'
-                case 5: 
-                    return 'motionCircle3 five'
-            }
-        },
-        motionCircle4Class () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'motionCircle4 hide'
-                case 2:
-                    return 'motionCircle4 shown'
-                case 3:
-                    return 'motionCircle4 expand'
-                case 4:
-                    return 'motionCircle4 four'
-                case 5: 
-                    return 'motionCircle4 five'
-            }
-        },
-        motionCircle5Class () {
-            switch (this.currentSection) {
-                case 1:
-                    return ''
-                case 2:
-                    return ''
-                case 3:
-                    return ''
-                case 4:
-                    return ''
-                case 5: 
-                    return ''
-            }
-        },
-        leftSmallCircleClass () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'smallCircle left hide'
-                case 2:
-                    return 'smallCircle left'
-                case 3:
-                    return 'smallCircle left three'
-                case 4:
-                    return 'smallCircle left three'
-                case 5:
-                    return 'smallCircle left three hide'
-            }
-        },
-        rightSmallCircleClass () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'smallCircle right hide'
-                case 2:
-                    return 'smallCircle right'
-                case 3:
-                    return 'smallCircle right three'
-                case 4:
-                    return 'smallCircle right three'
-                case 5:
-                    return 'smallCircle right three hide'
-            }
-        }
     },
     methods: {
         
@@ -552,51 +362,6 @@ export default {
         selectZH () {
             // TODO: Link language module
             console.log('selectZH() called');
-        },
-        // Class Handler (Indicator Circles)
-        indicatorCircleClass (n) {
-            switch (n) {
-                case 1:
-                    if (this.currentSection === 1) {
-                        return 'circle one default'
-                    } else {
-                        return 'circle one'
-                    }
-                case 2:
-                    if (this.currentSection === 1) {
-                        return 'circle two hide'
-                    } else if (this.currentSection === 2){
-                        return 'circle two focus'
-                    } else {
-                        return 'circle two'
-                    }
-                    
-                case 3:
-                    if (this.currentSection === 1) {
-                        return 'circle three hide'
-                    } else if (this.currentSection === 3){
-                        return 'circle three focus'
-                    } else {
-                        return 'circle three'
-                    }
-                case 4:
-                    if (this.currentSection === 1) {
-                        return 'circle four hide'
-                    } else if (this.currentSection === 4){
-                        return 'circle four focus'
-                    } else {
-                        return 'circle four'
-                    }
-                case 5:
-                    if (this.currentSection === 1) {
-                        return 'circle five hide'
-                    } else if (this.currentSection === 5){
-                        return 'circle five focus'
-                    } else {
-                        return 'circle five'
-                    }
-                
-            }
         },
         /**
          * Handles menu close event
