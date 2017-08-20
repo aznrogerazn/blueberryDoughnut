@@ -91,7 +91,7 @@
         </div>
         <div slot="right" class="contentWrapper" :style="{padding:0}">
 
-            <div>
+            <div id="desktop-qa">
                 <div class="questionSection">
                     <div class="note">ONE</div>
                     <div class="dialogue">
@@ -451,6 +451,9 @@ export default {
 // Exclusive ones
 
 // Q&A
+#desktop-qa
+    // position: absolute
+    
 .questionSection
     position: relative
     width: calc(62.5vw - 48px)

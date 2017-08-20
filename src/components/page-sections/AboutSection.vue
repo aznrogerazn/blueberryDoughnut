@@ -4,10 +4,10 @@
       REMINDER: CSS Classes on slots are removed in Vue 2.0
                 Remember to properly use wrapper elements
      -->
-    <div :class="leftWrapperClass">
+    <div class="leftWrapper" :class="{themed: themeLeft, flipped: flipLeft}">
         <slot name="left"></slot>
     </div>
-    <div :class="rightWrapperClass">
+    <div class="rightWrapper" :class="{themed: themeRight, flipped: flipRight}">
         <slot name="right"></slot>
     </div>
     <div>
@@ -28,24 +28,6 @@ export default {
         }
     },
     computed: {
-        leftWrapperClass () {
-            if (this.themeLeft) {
-                return 'leftWrapper themed'
-            } else if (this.flipLeft) {
-                return 'leftWrapper flipped'
-            } else {
-                return 'leftWrapper'
-            }
-        },
-        rightWrapperClass () {
-            if (this.themeRight) {
-                return 'rightWrapper themed'
-            } else if (this.flipRight) {
-                return 'rightWrapper flipped'
-            } else {
-                return 'rightWrapper'
-            }
-        },
         focused () {
             if (this.index === null) {
                 // index is not supplied from the parent

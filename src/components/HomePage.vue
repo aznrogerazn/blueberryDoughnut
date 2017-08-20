@@ -18,7 +18,7 @@
                 </svg>
             </div>
             <div class="onCorners topLeft">
-                <img :class="heroTitleClass" src="assets/index__heroTitle.svg"/>
+                <img class="heroTitle" :class="{hide: (currentSection == 1)}" src="assets/index__heroTitle.svg"/>
                 <div :class="titularBannerClass">
                     <div class="main">REACTION</div>
                     <div class="secondary">OF CREATIVITY</div>
@@ -276,16 +276,6 @@ export default {
             pageSectionIndex: 'pageSectionIndex'
         }),
 
-        pageLogoClass () {
-            switch (this.currentSection) {
-                case 1:
-                    return 'pageLogo';
-                case 4:
-                    return 'pageLogo up inverted'
-                default:
-                    return 'pageLogo up'
-            }
-        },
         heroTitleClass () {
             return (this.currentSection === 1) ? 'heroTitle' : 'heroTitle hide';
         },
