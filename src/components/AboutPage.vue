@@ -86,32 +86,40 @@
                 <p>學生在D-School不僅可以學會解決問題的方法，更可利用學校提供的資源與設備，在實作中心把想法實踐！</p>
             </div>
             
-            <div @click="section2Layer = 1" class="button">了解更多！</div>
+            <div @click="toggleQALayer()" class="button">了解更多！</div>
 
         </div>
         <div slot="right" class="contentWrapper" :style="{padding:0}">
 
-            <div id="desktop-qa">
+            <div id="desktop-qa" :class="{layer2: (this.section2Layer === 1)}">
                 <div class="questionSection">
-                    <div class="note">ONE</div>
-                    <div class="dialogue">
-                        <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
-                        <div class="dialogueInner">
-                            <h2>咦~台大創新設計學院是什麼 地方啊?平常都在幹嘛呢~?</h2>
+                    <div class="col">
+                        <div class="note">ONE</div>
+                        <div class="dialogue">
+                            <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
+                            <div class="dialogueInner">
+                                <h3>咦~台大創新設計學院是什麼地方啊?平常都在幹嘛呢~?</h3>
+                            </div>
+                        </div>
+                        <div class="description" :class="{show: (section2Layer == 1)}">
+                            <p>創新設計學院以創造跨領域合作為目標，邀請不同系所、不同專業的師生來到學院。</p>
+                            <p>開設校內學分課程、舉辦工作坊及講座活動等。並設計優質的討論空間及休息室，讓大家在舒適的環境中發揮想像和創意。</p>
+                            <p>同時，學院為了鼓勵同學們將想法落實，提倡動手做的精神，我們也建置了「實作中心」!實作中心內設有雷射切割機、3D印表機、CNC等等機械設備。所以~只要你走近學院，就會發現有人在上課、在為了某個理想激烈討論、在放空思索人生、在把玩機械或是模型、或是在吃東西</p>
                         </div>
                     </div>
-                    <div class="description" :class="{show: (section2Layer == 1)}">
-                        <p>創新設計學院以創造跨領域合作為目標，邀請不同系所、不同專業的師生來到學院。</p>
-                        <p>開設校內學分課程、舉辦工作坊及講座活動等。並設計優質的討論空間及休息室，讓大家在舒適的環境中發揮想像和創意。</p>
-                        <p>同時，學院為了鼓勵同學們將想法落實，提倡動手做的精神，我們也建置了「實作中心」!實作中心內設有雷射切割機、3D印表機、CNC等等機械設備。所以~只要你走近學院，就會發現有人在上課、在為了某個理想激烈討論、在放空思索人生、在把玩機械或是模型、或是在吃東西</p>
+                    <div class="col">
                     </div>
                 </div>
                 <div class="questionSection R">
-                    <div class="note">TWO</div>
-                    <div class="dialogue">
-                        <img class="bubble" src="assets/about_sectionQa_dialogBlueR.svg"/>
-                        <div class="dialogueInner">
-                            <h2>哇~創新設計學院好有趣喔~ 我可以報考嗎?</h2>
+                    <div class="col">
+                    </div>
+                    <div class="col">
+                        <div class="note">TWO</div>
+                        <div class="dialogue">
+                            <img class="bubble" src="assets/about_sectionQa_dialogBlueR.svg"/>
+                            <div class="dialogueInner">
+                                <h3>哇~創新設計學院好有趣喔~我可以報考嗎?</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,7 +128,7 @@
                     <div class="dialogue">
                         <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
                         <div class="dialogueInner">
-                            <h2>為什麼台大會建立創新設計學 院呢?學院是怎麼運作的呢?</h2>
+                            <h3>為什麼台大會建立創新設計學院呢?學院是怎麼運作的呢?</h3>
                         </div>
                     </div>
                 </div>
@@ -129,7 +137,7 @@
                     <div class="dialogue">
                         <img class="bubble" src="assets/about_sectionQa_dialogBlueR.svg"/>
                         <div class="dialogueInner">
-                            <h2>那麼~我要如何參與學院大小事呢?</h2>
+                            <h3>那麼~我要如何參與學院大小事呢?</h3>
                         </div>
                     </div>
                 </div>
@@ -138,7 +146,7 @@
                     <div class="dialogue">
                         <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
                         <div class="dialogueInner">
-                            <h2>我需要具備什麼樣的能力才能參與嗎?</h2>
+                            <h3>我需要具備什麼樣的能力才能參與嗎?</h3>
                         </div>
                     </div>
                 </div>
@@ -277,10 +285,22 @@ export default {
             }
             return LANG[name];
         },
+        toggleQALayer () {
+            if (this.section2Layer === 0) {
+                this.section2Layer = 1;
+                // Allow free scrolling
+                this.toggleControlledScrolling(false);
+            } else {
+                // Disable free scrolling and go back
+                this.toggleControlledScrolling(true);
+                this.section2Layer = 0;
+            }
+        },
         ...mapActions({
             changePageLogoState: 'changePageLogoState',
             setMenuStyle: 'setMenuStyle',
-            changePageLogoState: 'changePageLogoState'
+            changePageLogoState: 'changePageLogoState',
+            toggleControlledScrolling: 'toggleControlledScrolling'
         })
     },
     mounted () {
@@ -466,12 +486,17 @@ export default {
         +homePageTransitionFast
         max-height: 0
         overflow: hidden
+        color: $theme1
     .description.show
         max-height: 240px
+        max-width: 40vw
 
 .questionSection
     position: relative
+    display: flex
     width: calc(62.5vw - 48px)
+    .col
+        flex: 1
     .dialogue
         position: relative
         display: inline-block
@@ -485,7 +510,7 @@ export default {
             height: 100%
             +flexCentre
             display: flex
-        h2
+        h3
             position: absolute
             width: 70%
     .note
@@ -498,9 +523,40 @@ export default {
     text-align: right
     .note
         right: 0
-    
-.qaEscapeLeft
-    transform: translate3d(-34vw, 0, 0)
+// Right-side layer 2:
+.layer2
+
+    .questionSection
+        
+        width: calc(100vw - 64px)
+        .dialogue
+            
+            
+            .bubble
+                height: auto
+                width: 50vw
+            .dialogueInner
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                +flexCentre
+                display: flex
+            h2
+                position: absolute
+                width: 70%
+        .note
+            position: absolute
+            top: -36px
+            color: white
+            font-size: 48px
+
+    .questionSection.R
+        text-align: right
+        .note
+            right: 0
+
 
 // Graphics
 .bigD

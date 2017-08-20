@@ -78,6 +78,7 @@ export default {
   computed: {
     ...mapGetters({
       allowScrolling: 'allowScrolling',
+      controlledScrolling: 'controlledScrolling',
       pageSectionIndex: 'pageSectionIndex'
     })
   },
@@ -88,7 +89,8 @@ export default {
       changePageLogoState: 'changePageLogoState',
       setPageSectionIndex: 'setPageSectionIndex',
       enableScrolling: 'enableScrolling',
-      disableScrolling: 'disableScrolling'
+      disableScrolling: 'disableScrolling',
+      toggleControlledScrolling: 'toggleControlledScrolling'
     }),
 
     scrollToY (offset, cb) {
@@ -104,10 +106,19 @@ export default {
     },
 
     handleMouseWheel (eV) {
+      console.log('<App> handleMouseWheel() called:\n controlledScrolling = ' + this.controlledScrolling + ' \n allowScrolling = ' + this.allowScrolling + '\n pageSectionIndex = ' + this.pageSectionIndex);
+
+      if (!this.controlledScrolling && this.allowScrolling) {
+        // Allows Natural Free Scrolling
+        return;
+      } else if (!this.controlledScrolling && !this.allowScrolling) {
+        // Allow Natural Free Scrolling, but blocked for the time being
+        eV.preventDefault();
+        return;
+      }
       eV.preventDefault();
       
-      console.log('<App> handleMouseWheel() called: \n allowScrolling = ' + this.allowScrolling + '\n pageSectionIndex = ' + this.pageSectionIndex);
-      //
+      // Is Controlled Scrolling
       if (!this.allowScrolling) {
           return;
       }

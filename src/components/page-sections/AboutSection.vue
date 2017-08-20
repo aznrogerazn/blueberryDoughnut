@@ -140,7 +140,8 @@ export default {
         +homePageTransitionFast
 
     .leftWrapper.hideLeft
-        flex: 0
+        +hideNoPointer
+        overflow: hidden
         max-width: 0
     
     .rightWrapper
