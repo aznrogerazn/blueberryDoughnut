@@ -95,7 +95,8 @@
                 <div class="questionSection">
                     <div class="col">
                         <div class="note">ONE</div>
-                        <div class="dialogue">
+                        <div class="dialogue" @click="toggleQALayer()">
+                            
                             <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
                             <div class="dialogueInner">
                                 <h3>咦~台大創新設計學院是什麼地方啊?平常都在幹嘛呢~?</h3>
@@ -147,6 +148,7 @@
                         <img class="bubble" src="assets/about_sectionQa_dialogBlueL.svg"/>
                         <div class="dialogueInner">
                             <h3>我需要具備什麼樣的能力才能參與嗎?</h3>
+                            
                         </div>
                     </div>
                 </div>
@@ -172,8 +174,60 @@
                 <p>從熱呼呼的七八月,夏天催著滿身的汗水, 到九月十月,開學再次踏入令人懷念的校園</p>
             </div>
         </div>
-        <div slot="right" class="contentWrapper">
+        <div slot="right" class="contentWrapper noPadding">
+            <div id="calendarWrapper">
+                <svg ref="bgSvg" class="bgSvg">
+                    <line x1="0" :x2="800" y1="(n - 1)  * 30" y2="(n - 1)  * 30" v-for="n in 30" />
+                </svg>
+                <div class="months">
+                    <div class="month">
+                        <div class="content">
+                            <img class="icon" src="assets/about_sectionChronology_monthIcon9.svg"/>
+                            <h1>9月</h1>
+                            <h4>上學期開學</h4>
+                            <h4>課程說明會/選課</h4>
+                        </div>
+                        <svg class="border right">
+                            <line x1="1" x2="1" :y1="(n - 1) * 20" :y2="((n - 1) * 20) + 15" v-for="n in 30" />
+                        </svg>
+                        <svg class="border left">
+                            <line x1="1" x2="1" :y1="(n - 1) * 20" :y2="((n - 1) * 20) + 15" v-for="n in 30" />
+                        </svg>
+                    </div>
+                    <div class="month">
+                        <div class="content">
+                            <img class="icon" src="assets/about_sectionChronology_monthIcon9.svg"/>
+                            <h1>10月</h1>
+                            <h4>21%跨領域教師交流會</h4>
+                            <h4>實作中心工作坊</h4>
+                        </div>
+                        <svg class="border right">
+                            <line x1="1" x2="1" :y1="(n - 1) * 20" :y2="((n - 1) * 20) + 15" v-for="n in 30" />
+                        </svg>
+                        <svg class="border left">
+                            <line x1="1" x2="1" :y1="(n - 1) * 20" :y2="((n - 1) * 20) + 15" v-for="n in 30" />
+                        </svg>
+                    </div>
+                    <div class="month">
+                        <div class="content">
+                            <img class="icon" src="assets/about_sectionChronology_monthIcon9.svg"/>
+                            <h1>11月</h1>
+                            <h4>大型講座活動</h4>
+                            <h4>實作中心工作坊</h4>
+                        </div>
+                        <svg class="border right">
+                            <line x1="1" x2="1" :y1="(n - 1) * 20" :y2="((n - 1) * 20) + 15" v-for="n in 30" />
+                        </svg>
+                        <svg class="border left">
+                            <line x1="1" x2="1" :y1="(n - 1) * 20" :y2="((n - 1) * 20) + 15" v-for="n in 30" />
+                        </svg>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="calenderScroller">
 
+            </div>
         </div>
     </AboutSection>
     <AboutSection :index="4" :flipLeft="true" :flipRight="true">
@@ -340,7 +394,8 @@ export default {
 
 // =scaleHeaderType ($scale: 1)
 //     font-size: $scale * 16px
-
+.contentWrapper.noPadding
+    padding: 0
 .contentWrapper
     position: relative
     padding: 0 64px
@@ -557,6 +612,60 @@ export default {
         .note
             right: 0
 
+
+// Chronology
+#calendarWrapper
+    position: relative
+    overflow-y: hidden
+    width: 62.5vw
+    min-height: 100px
+
+    svg.bgSvg
+        overflow: hidden
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+        line
+            stroke: $theme1
+        
+    .months
+        display: flex
+        flex-direction: row
+        width: 62.5vw
+        overflow: hidden
+        .month
+            position: relative
+            display: flex
+            min-width: 360px
+            max-width: 360px
+            padding: 120px 0
+            border: none
+            +flexCentre
+            .content
+                .icon
+                    width: 100px
+                h1
+                    color: black
+                    margin: 14px 0
+
+            line
+                stroke: $theme1
+            .border
+                position: absolute
+                top: 0
+                width: 1px
+                height: 100%
+                overflow: hidden
+            .border.right
+                right: 0
+            .border.left
+                left: -1px
+
+#calenderScroller
+    position: absolute
 
 // Graphics
 .bigD

@@ -142,7 +142,8 @@ export default {
     .leftWrapper.hideLeft
         +hideNoPointer
         overflow: hidden
-        max-width: 0
+        // max-width: 0
+        max-height: 0
     
     .rightWrapper
         +fullHeightPadded
